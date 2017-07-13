@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-import KBEngine, copy, enum, operator
+import KBEngine
+import copy, enum, operator
 from KBEDebug import *
 from KTween.KTweenEnum import KTweenEnum
 import Skills
@@ -54,11 +55,9 @@ class Avatar(KBEngine.Entity, EntityObject, CombatEntity):
         self.isAvatar = True
         self.levelName = level_data.level_name_data[self.level]
         self.levelPeriodName = level_data.level_period_name_data[self.levelPeriod]
-        self.HP = 100 #self.HP_Max
-        self.MSP = 1000 # self.MSP_Max
-        self.SP = 1000 # self.SP_Max
-        self.MSP_Max = 1000
-        self.SP_Max = 1000
+        self.HP = self.HP_Max
+        self.MSP = self.MSP_Max
+        self.SP = self.SP_Max
         self.taskScriptList = {}
         self.finishTaskScriptList = []
         """
@@ -76,14 +75,15 @@ class Avatar(KBEngine.Entity, EntityObject, CombatEntity):
                         if taskScriptKey >= nextTaskScriptKey:
                             nextTaskScriptKey = taskScriptKey
                     nextTaskScriptKey += 1
-                    exec("self.taskScriptList[" + str(nextTaskScriptKey) + "] = " + taskScript + "(self, " + str(nextTaskScriptKey) +
+                    exec("self.taskScriptList[" + str(nextTaskScriptKey) + "] = " + taskScript + "(self, " + str(
+                        nextTaskScriptKey) +
                          ", avatarTaskInfo[0], avatarTaskInfo[1])")
         self.addTimer(1, 1, 0)  # 添加 任务监视检测 定时器
         self.addTimer(1, 60, 1)  # 添加 灵力上限值 定时器
-        self.counter = 0    # 新场景重置坐标次数计数器
+        self.counter = 0  # 新场景重置坐标次数计数器
 
     def onTimer(self, timerHandle, userData):
-        if userData == 0:   # 任务监视脚本定时器
+        if userData == 0:  # 任务监视脚本定时器
             """
             此Timer会每秒调用任务监视脚本的检测函数检测任务是否满足完成条件。
             """
@@ -99,19 +99,19 @@ class Avatar(KBEngine.Entity, EntityObject, CombatEntity):
                     tempDict[key] = value
             self.taskScriptList = tempDict
             self.finishTaskScriptList.clear()
-        if userData == 1:   # 灵力值增加定时器，每60秒调用一次
+        if userData == 1:  # 灵力值增加定时器，每60秒调用一次
             currentLevelSpLimit = self.levelInfoData[self.level]["等阶灵力需求值"][self.levelPeriod]
             if self.SP_Max >= currentLevelSpLimit:
                 self.SP_Max = currentLevelSpLimit
             else:
                 self.SP_Max += self.talent  # 历练度、饥渴度
-        if userData == 2:   # 进入新场景重置坐标定时器
+        if userData == 2:  # 进入新场景重置坐标定时器
             DEBUG_MSG("Avatar : reset position!")
             self.position = self.newSpacePosition
             self.counter += 1
             if self.counter >= 10:
                 self.delTimer(timerHandle)
-        if userData == 3:   # 重生定时器
+        if userData == 3:  # 重生定时器
             DEBUG_MSG("Avatar set respawnPosition!")
             respawnPosition = self.getCurrSpace().getAttr("respawnPoint")
             DEBUG_MSG(respawnPosition)
@@ -180,10 +180,10 @@ class Avatar(KBEngine.Entity, EntityObject, CombatEntity):
         if exposed != self.id:
             return
         if point is not None:
-            skillData = avatar_skill_data.data[1]   # 技能1
-            minSp = skillData["levelSpLimit"][1]    # 使用这个技能最少需要的灵力值
-            maxSp = skillData["levelSpLimit"][1]    # 使用这个技能最多可以使用的灵力值
-            skillSpAmount = 0   # 此次技能实际使用的灵力值
+            skillData = avatar_skill_data.data[1]  # 技能1
+            minSp = skillData["levelSpLimit"][1]  # 使用这个技能最少需要的灵力值
+            maxSp = skillData["levelSpLimit"][1]  # 使用这个技能最多可以使用的灵力值
+            skillSpAmount = 0  # 此次技能实际使用的灵力值
             if self.MSP < minSp:
                 return
             if self.MSP >= maxSp:
@@ -192,37 +192,37 @@ class Avatar(KBEngine.Entity, EntityObject, CombatEntity):
             else:
                 skillSpAmount = self.MSP
                 self.MSP = 0
-            skillQuality = skillData["quality"]     # 技能品质，即将灵力转化为攻击力的效率
+            skillQuality = skillData["quality"]  # 技能品质，即将灵力转化为攻击力的效率
             damage = int(skillSpAmount * skillQuality)
 
             triggerStrategy = DamageTriggerStrategy()
             triggerStrategy.setData({"攻击力": self.attackForce})
             trigger = KBEngine.createEntity("Trigger",
-                                           self.spaceID,
-                                           self.position,
-                                           (0.0, 0.0, yaw),
-                                           {
-                                               'name': "SkillQ",
-                                               'triggerID': 1,
-                                               'triggerSize': 4,
-                                               'damage': damage,
-                                               'parentSkill': "SkillQ",
-                                               'spellCaster': self,
-                                               'triggerStrategy': triggerStrategy
-                                           })
+                                            self.spaceID,
+                                            self.position,
+                                            (0.0, 0.0, yaw),
+                                            {
+                                                'name': "SkillQ",
+                                                'triggerID': 1,
+                                                'triggerSize': 4,
+                                                'damage': damage,
+                                                'parentSkill': "SkillQ",
+                                                'spellCaster': self,
+                                                'triggerStrategy': triggerStrategy
+                                            })
             trigger.moveToPointSample(point, 80)
 
-        self.allClients.DoSkillQ(point, yaw)        # 在客户端上调用DoSkillQ函数
+        self.allClients.DoSkillQ(point, yaw)  # 在客户端上调用DoSkillQ函数
 
     def requestDoSkillW(self, exposed, point):
         DEBUG_MSG("Avatar:requestDoSkillW")
         if exposed != self.id:
             return
         if point is not None:
-            skillData = avatar_skill_data.data[2]   # 技能2
-            minSp = skillData["levelSpLimit"][1]    # 使用这个技能最少需要的灵力值
-            maxSp = skillData["levelSpLimit"][1]    # 使用这个技能最多可以使用的灵力值
-            skillSpAmount = 0   # 此次技能实际使用的灵力值
+            skillData = avatar_skill_data.data[2]  # 技能2
+            minSp = skillData["levelSpLimit"][1]  # 使用这个技能最少需要的灵力值
+            maxSp = skillData["levelSpLimit"][1]  # 使用这个技能最多可以使用的灵力值
+            skillSpAmount = 0  # 此次技能实际使用的灵力值
             if self.MSP < minSp:
                 return
             if self.MSP >= maxSp:
@@ -231,7 +231,7 @@ class Avatar(KBEngine.Entity, EntityObject, CombatEntity):
             else:
                 skillSpAmount = self.MSP
                 self.MSP = 0
-            skillQuality = skillData["quality"]     # 技能品质，即将灵力转化为攻击力的效率
+            skillQuality = skillData["quality"]  # 技能品质，即将灵力转化为攻击力的效率
             damage = int(skillSpAmount * skillQuality)
 
             triggerStrategy = DamageTriggerStrategy()
@@ -267,14 +267,14 @@ class Avatar(KBEngine.Entity, EntityObject, CombatEntity):
         tempBag[goodsID] = goodsID
         self.avatarBag = tempBag
         DEBUG_MSG(self.avatarBag)
-        #郑晓飞--小试牛刀三任务--购买木剑
+        # 郑晓飞--小试牛刀三任务--购买木剑
         if goods_data.data[goodsID]['name'] == "木剑":
             if self.hasAttr("Xiaoshiniudao_San_TaskCounter") is True:
                 self.setAttr("Xiaoshiniudao_San_TaskCounter",
                              self.getAttr("Xiaoshiniudao_San_TaskCounter") + 1)
             else:
                 self.setAttr("Xiaoshiniudao_San_TaskCounter", 1)
-        #郑晓飞--探险山洞任务--获得宝箱
+        # 郑晓飞--探险山洞任务--获得宝箱
         if goods_data.data[goodsID]['name'] == "精致宝箱":
             if self.hasAttr("TanxianshandongRenWu_TaskCounter") is True:
                 self.setAttr("TanxianshandongRenWu_TaskCounter",
@@ -285,17 +285,17 @@ class Avatar(KBEngine.Entity, EntityObject, CombatEntity):
         if goods_data.data[goodsID]['name'] == "钻石":
             if self.hasAttr("Caijizuanshi_TaskCounter") is True:
                 self.setAttr("Caijizuanshi_TaskCounter",
-                            self.getAttr("Caijizuanshi_TaskCounter") + 1)
+                             self.getAttr("Caijizuanshi_TaskCounter") + 1)
             else:
                 self.setAttr("Caijizuanshi_TaskCounter", 1)
         # 郑晓飞--寻找宝马任务--寻找宝马
         if goods_data.data[goodsID]['name'] == "宝马":
             if self.hasAttr("Xunzhaobaoma_TaskCounter") is True:
                 self.setAttr("Xunzhaobaoma_TaskCounter",
-                            self.getAttr("Xunzhaobaoma_TaskCounter") + 1)
+                             self.getAttr("Xunzhaobaoma_TaskCounter") + 1)
             else:
                 self.setAttr("Xunzhaobaoma_TaskCounter", 1)
-        #/郑晓飞
+        # /郑晓飞
         pass
 
     def deleteGoods(self, goodsID):
@@ -394,7 +394,7 @@ class Avatar(KBEngine.Entity, EntityObject, CombatEntity):
                     self.giveGoods(k)
             if i == 0:
                 DEBUG_MSG("has no this prop!")
-        #郑晓飞------丢掉任务道具
+        # 郑晓飞------丢掉任务道具
         for (propName, propCount) in npc_data.data[npcName][taskIndex]["道具丢弃"].items():
             i = 0
             for (k, va) in goods_data.data.items():
@@ -404,7 +404,7 @@ class Avatar(KBEngine.Entity, EntityObject, CombatEntity):
                     self.deleteGoods(k)
             if i == 0:
                 DEBUG_MSG("has no this prop!")
-        #/郑晓飞
+        # 郑晓飞
         for (key, value) in self.taskInfoList.items():
             if value[0] == npcName and value[1] == taskIndex:
                 self.taskInfoList[key][3] = True
@@ -429,7 +429,8 @@ class Avatar(KBEngine.Entity, EntityObject, CombatEntity):
             if keyIndex >= indexOnAvatarTaskScriptList:
                 indexOnAvatarTaskScriptList = keyIndex
         indexOnAvatarTaskScriptList += 1
-        exec("self.taskScriptList[" + str(indexOnAvatarTaskScriptList) + "] = " + taskScript + "(self, " + str(indexOnAvatarTaskScriptList) +
+        exec("self.taskScriptList[" + str(indexOnAvatarTaskScriptList) + "] = " + taskScript + "(self, " + str(
+            indexOnAvatarTaskScriptList) +
              ", npcName, taskIndex)")
 
     def onDestroy(self):
@@ -457,7 +458,7 @@ class Avatar(KBEngine.Entity, EntityObject, CombatEntity):
         DEBUG_MSG("onSendChatMessage" + chatContent)
         self.allClients.onReciveChatMessage(selfName, chatContent)
 
-    def FindFriends(self, exposed):
+    def findFriends(self, exposed):
         """
         #--郑晓飞---返回数据库中的所有注册人员在客户端进行比对，在客户端检测是否有此搜索朋友
         :param exposed: 
@@ -469,7 +470,7 @@ class Avatar(KBEngine.Entity, EntityObject, CombatEntity):
         DEBUG_MSG(avatarId)
         KBEngine.executeRawDatabaseCommand("SELECT sm_entityName from tbl_Avatar", _getAllEntityName)
 
-    def AddFriends(self, exposed, goldxFriendsName):
+    def addFriends(self, exposed, goldxFriendsName):
         """
         郑晓飞---添加好友，并将此好友写入数据库
         :return: 
@@ -482,7 +483,7 @@ class Avatar(KBEngine.Entity, EntityObject, CombatEntity):
         DEBUG_MSG(self.avatarFriends)
         self.allClients.OnShowAllFriends(self.avatarFriends)
 
-    def DeleteFriends(self, exposed, goldxFriendsName):
+    def deleteFriends(self, exposed, goldxFriendsName):
         """
         郑晓飞---删除好友，同时也删除数据库中的信息
         :return: 
@@ -495,7 +496,7 @@ class Avatar(KBEngine.Entity, EntityObject, CombatEntity):
         DEBUG_MSG(self.avatarFriends)
         self.allClients.OnShowAllFriends(self.avatarFriends)
 
-    def ShowAllFriends(self, exposed):
+    def showAllFriends(self, exposed):
         """
         郑晓飞---显示全部好友
         :return: 
@@ -504,7 +505,7 @@ class Avatar(KBEngine.Entity, EntityObject, CombatEntity):
         DEBUG_MSG(self.avatarFriends)
         self.allClients.OnShowAllFriends(self.avatarFriends)
 
-    def SendAvatarNameToClient(self, entityNames):
+    def sendAvatarNameToClient(self, entityNames):
         """
         将所有玩家的名字发给客户端
         :param entityNames: 数据库中所有注册玩家的字符串
@@ -512,6 +513,7 @@ class Avatar(KBEngine.Entity, EntityObject, CombatEntity):
         """
         DEBUG_MSG("Avatar:SendAvatarNameToClient")
         self.allClients.OnFindFriends(entityNames)
+
 
 def _getAllEntityName(resultCollect, num, errorInfo):
     DEBUG_MSG("_getAllEntityName")

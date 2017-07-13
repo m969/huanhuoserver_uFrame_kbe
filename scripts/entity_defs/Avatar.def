@@ -330,26 +330,26 @@
 		</onSendChatMessage>
 
 		<!--郑晓飞---返回数据库中的所有注册人员-->
-		<FindFriends>
+		<findFriends>
 			<Exposed/>
-		</FindFriends>
+		</findFriends>
 
 		<!--郑晓飞---添加朋友-->
-		<AddFriends>
+		<addFriends>
 			<Exposed/>
 			<Arg>       UNICODE      </Arg>
-		</AddFriends>
+		</addFriends>
 
 		<!--郑晓飞---删除朋友-->
-		<DeleteFriends>
+		<deleteFriends>
 			<Exposed/>
 			<Arg>       UNICODE      </Arg>
-		</DeleteFriends>
+		</deleteFriends>
 
 		<!--郑晓飞---显示全部朋友-->
-		<ShowAllFriends>
+		<showAllFriends>
 			<Exposed/>
-		</ShowAllFriends>
+		</showAllFriends>
 
 	</CellMethods>
 
