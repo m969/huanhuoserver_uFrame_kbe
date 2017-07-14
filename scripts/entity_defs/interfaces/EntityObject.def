@@ -1,13 +1,14 @@
 <root>
 
 	<Properties>
-		<name>
-			<Type>              UNICODE              </Type>
-			<Flags>             ALL_CLIENTS          </Flags>
-			<Default>           None                 </Default>
-		</name>
+		<entityName><!-- 实体名称 -->
+			<Type>          UNICODE                </Type>
+			<Flags>         ALL_CLIENTS               </Flags>
+			<Persistent>    true                </Persistent>
+			<Default>       entityName                  </Default>
+		</entityName>
 		
-		<modelName>
+		<modelName><!-- 模型名称 -->
 			<Type>              UNICODE              </Type>
 			<Flags>             ALL_CLIENTS          </Flags>
 			<Default>           None                 </Default>
@@ -15,6 +16,7 @@
 	</Properties>
 
 	<ClientMethods>
+
 	</ClientMethods>
 
 	<BaseMethods>
@@ -36,8 +38,11 @@
 		</delAttr>
 		
 		<getDatabaseID/>
+		
 		<getScriptName/>
+
 		<getCell/>
+
 	</BaseMethods>
 
 	<CellMethods>
@@ -58,21 +63,10 @@
 			<Arg>               UNICODE              </Arg>
 		</delAttr>
 
-		<hasTag>
-			<Arg>               UNICODE               </Arg>
-		</hasTag>
-
-		<setTag>
-			<Arg>               UNICODE                </Arg>
-		</setTag>
-
-		<isAvatar/>
-		<isMonster/>
-		<isNpc/>
-		<isCombatEntity/>
-		<isTrigger/>
 		<getEntityID/>
+
 		<getDatabaseID/>
+
 	</CellMethods>
 
 </root>

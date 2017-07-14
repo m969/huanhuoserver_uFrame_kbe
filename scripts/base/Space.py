@@ -13,8 +13,7 @@ class Space(KBEngine.Base, EntityObject):
         KBEngine.Base.__init__(self)
         EntityObject.__init__(self)
         self.spaceName = self.cellData["spaceName"]
-        self.spaceData = space_data.data[self.cellData["name"]]     # 取出自身的场景数据
-        # self.gateWayEntrancePosition = self.spaceData["传送门入口点"]
+        self.spaceData = space_data.data[self.cellData["cityName"]]     # 取出自身的场景数据
         self.createInNewSpace(None)
 
     def onGetCell(self):

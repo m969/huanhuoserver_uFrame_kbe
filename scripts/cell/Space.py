@@ -22,7 +22,7 @@ class Space(KBEngine.Entity, EntityObject):
         KBEngine.globalData["space_cell_%i" % self.spaceID] = self
         KBEngine.globalData["space_cell_" + self.spaceName] = self
 
-        self.spaceData = space_data.data[self.name]     # 取出自身的场景数据
+        self.spaceData = space_data.data[self.cityName]     # 取出自身的场景数据
 
         self.respawnPoint = self.spaceData["重生点"]
 
@@ -40,7 +40,6 @@ class Space(KBEngine.Entity, EntityObject):
                                                           (0.0, 0.0, 0.0),
                                                           {
                                                               "npcID": npcData["id"],
-                                                              "name": npcName,
                                                               "entityName": npcName,
                                                               'modelName': npcData["模型名称"]
                                                           })     # 创建Npc
@@ -55,7 +54,7 @@ class Space(KBEngine.Entity, EntityObject):
                                             triggerData["触发器坐标"],
                                             (0.0, 0.0, 0.0),
                                             {
-                                                'name': "GateWayTrigger",
+                                                'entityName': "GateWayTrigger",
                                                 'lifeSpans': 0,
                                                 'triggerSize': 4,
                                                 "triggerStrategy": self.triggerStrategy
@@ -75,7 +74,7 @@ class Space(KBEngine.Entity, EntityObject):
         进入场景
         """
         DEBUG_MSG('Space::onEnter space[%d] entityID = %i.' % (self.spaceID, entityMailbox.id))
-        entityMailbox.cell.onAvatarEnterSpace(self.spaceID, space_data.data[self.name]["场景名称"])
+        entityMailbox.cell.onAvatarEnterSpace(self.spaceID, space_data.data[self.cityName]["场景名称"])
 
     def onNpcEnter(self, npcMailbox):
         DEBUG_MSG("Space:onNpcEnter")
@@ -98,7 +97,6 @@ class Space(KBEngine.Entity, EntityObject):
                                                         spawnPositionList[counter],
                                                         (0.0, 0.0, 0.0),
                                                         {
-                                                            "name": monsterName,
                                                             'entityName': monsterName,
                                                             'modelName': monster_data.data[monsterName]["模型名称"]
                                                         })      # 创建Monster
@@ -136,7 +134,6 @@ class Space(KBEngine.Entity, EntityObject):
         #重生怪物
         monster = KBEngine.createEntity("Monster", self.spaceID, spawnPos, (0.0, 0.0, 0.0),
                                             {
-                                                "name": name,
                                                 'entityName': name,
                                                 'modelName': monster_data.data[name]["模型名称"]
                                             })

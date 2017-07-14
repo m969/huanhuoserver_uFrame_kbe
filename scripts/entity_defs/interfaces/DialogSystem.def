@@ -1,0 +1,103 @@
+<root>
+
+	<Properties>
+
+		<goldCount><!--金币数量-->
+			<Type>          INT32                </Type>
+			<Flags>         OWN_CLIENT           </Flags>
+			<Persistent>    true                </Persistent>
+			<Default>       0                 </Default>
+		</goldCount>
+
+		<currentTaskID><!-->当前任务id<-->
+			<Type>          INT32                        </Type>
+			<Flags>         CELL_PUBLIC_AND_OWN         </Flags>
+			<Persistent>    true                       </Persistent>
+		</currentTaskID>
+
+		<avatarBag><!--角色背包-->
+			<Type>          AVATAR_BAG                </Type>
+			<Flags>         CELL_PUBLIC_AND_OWN        </Flags>
+			<Persistent>    true                       </Persistent>
+		</avatarBag>
+
+		<taskInfoList><!--任务列表-->
+			<Type>          TASK_INFO_LIST                         </Type>
+			<Flags>         CELL_PUBLIC_AND_OWN               </Flags>
+			<Persistent>    true                       </Persistent>
+			<Default>                                  </Default>
+		</taskInfoList>
+
+		<taskCounter><!--任务计数器-->
+			<Type>          INT32                    </Type>
+			<Flags>         CELL_PUBLIC_AND_OWN        </Flags>
+			<Default>       0                          </Default>
+		</taskCounter>
+	</Properties>
+
+	<ClientMethods>
+
+		<DoStore>
+			<Arg>           STORE_GOODS_ID_LIST    </Arg>
+		</DoStore>
+
+		<DoDialog>
+			<Arg>           UNICODE              </Arg>
+			<Arg>           UNICODE              </Arg>
+		</DoDialog>
+
+		<BuyResult>
+			<Arg>           INT32                </Arg>
+		</BuyResult>
+
+	</ClientMethods>
+
+	<BaseMethods>
+
+	</BaseMethods>
+
+	<CellMethods>
+
+		<requestDialog>
+			<Exposed/>
+			<Arg>           INT32                    </Arg>
+			<Arg>           UNICODE                 </Arg>
+		</requestDialog>
+
+		<requestBuyGoods>
+			<Exposed/>
+			<Arg>           INT32                    </Arg>
+			<Arg>           UNICODE                  </Arg>
+			<Arg>           INT32                    </Arg>
+		</requestBuyGoods>
+
+		<getTaskInfo>
+			<Arg>           UNICODE                </Arg>
+		</getTaskInfo>
+
+		<isTaskFinish>
+			<Arg>           UNICODE                </Arg>
+			<Arg>           INT32                </Arg>
+		</isTaskFinish>
+
+		<giveAward>
+			<Arg>           UNICODE                </Arg>
+			<Arg>           INT32                </Arg>
+		</giveAward>
+
+		<giveTask>
+			<Arg>           MAILBOX                </Arg>
+			<Arg>           INT32                  </Arg>
+		</giveTask>
+
+		<giveGoods>
+			<Arg>           INT32                </Arg>
+		</giveGoods>
+
+		<deductMoney>
+			<Arg>           INT32                </Arg>
+		</deductMoney>
+
+	</CellMethods>
+
+</root>

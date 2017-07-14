@@ -11,6 +11,12 @@
 	</Implements>
 
 	<Properties>
+
+		<owner>
+			<Type>                  MAILBOX                  </Type>
+			<Flags>                 CELL_PRIVATE            </Flags>
+		</owner>
+
 		<triggerID>
 			<Type>                  INT32                  </Type>
 			<Flags>                 ALL_CLIENTS            </Flags>
@@ -35,30 +41,9 @@
 			<Default>               4                   </Default>
 		</lifeSpans>
 
-		<damage>
-			<Type>                  INT32              </Type>
-			<Flags>                 CELL_PRIVATE       </Flags>
-			<Default>               1                 </Default>                    
-		</damage>
-		<!-- 暂时没用 -->
-		<parentSkill>
-			<Type>                  UNICODE                </Type>
-			<Flags>                 ALL_CLIENTS            </Flags>
-		</parentSkill>
-
-		<parentEntityID>
-			<Type>                  INT32                </Type>
-			<Flags>                 CELL_PUBLIC           </Flags>
-		</parentEntityID>
-
-		<spellCaster>
-			<Type>                  MAILBOX               </Type>
-			<Flags>                 CELL_PUBLIC           </Flags>
-		</spellCaster>
-
 		<triggerStrategy>
 			<Type>                  PYTHON                </Type>
-			<Flags>                 ALL_CLIENTS            </Flags>
+			<Flags>                 CELL_PRIVATE            </Flags>
 		</triggerStrategy>
 	</Properties>
 

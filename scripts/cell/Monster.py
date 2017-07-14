@@ -3,13 +3,13 @@ import KBEngine
 import random
 from KBEDebug import *
 from interfaces.EntityObject import EntityObject
-from interfaces.CombatEntity import CombatEntity
+from interfaces.HealthSystem import HealthSystem
 from interfaces.AI import AI
 import monster_data
 from triggerStrategies.onEnterTrap.TriggerStrategy import *
 
 
-class Monster(KBEngine.Entity, EntityObject, CombatEntity, AI):
+class Monster(KBEngine.Entity, EntityObject, HealthSystem, AI):
     def __init__(self):
         DEBUG_MSG("Monster::__init__")
         KBEngine.Entity.__init__(self)

@@ -15,7 +15,6 @@ class SpacesManager(KBEngine.Base):
             DEBUG_MSG("spaceName:" + spaceData["场景名称"])
             space = KBEngine.createBaseLocally("Space",
                                                {
-                                                   "name": cityName,
                                                    "cityName": cityName,
                                                    "spaceName": spaceData["场景名称"]
                                                })

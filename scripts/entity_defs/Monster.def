@@ -8,43 +8,13 @@
 
 	<Implements>
 		<Interface>	        EntityObject		</Interface>
-		<Interface>	        CombatEntity		</Interface>
+		<Interface>	        HealthSystem		</Interface>
+		<Interface>	        SuperPowerSystem		</Interface>
 		<Interface>	        AI					</Interface>
     </Implements>
 
 	<Properties>
-		<entityName>
-			<Type>          UNICODE                </Type>
-			<Flags>         ALL_CLIENTS               </Flags>
-			<Default>       monstername                  </Default>
-		</entityName>
-
-		<HP>
-			<Type>          INT32                </Type>
-			<Flags>         ALL_CLIENTS               </Flags>
-			<Default>       10                  </Default>
-		</HP>
-
-		<HP_Max>
-			<Type>          INT32             </Type>
-			<Flags>         ALL_CLIENTS            </Flags>
-			<Default>       10               </Default>
-		</HP_Max>
-
-		<MP>
-			<Type>			INT32				</Type>
-			<Flags>			ALL_CLIENTS			</Flags>
-			<Persistent>	true					</Persistent> 
-			<Default>		10				       </Default>
-		</MP>
-
-		<MP_Max>
-			<Type>			INT32				</Type>
-			<Flags>			ALL_CLIENTS			</Flags>
-			<Persistent>	true					</Persistent> 
-			<Default>		10				</Default>
-		</MP_Max>
-		
+	
 		<spawnPos>
 			<Type>			VECTOR3              </Type>
 			<Flags>			ALL_CLIENTS			</Flags>

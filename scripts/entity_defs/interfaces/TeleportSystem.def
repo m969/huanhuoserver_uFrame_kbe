@@ -1,0 +1,55 @@
+<root>
+
+	<Properties>
+
+	</Properties>
+
+	<ClientMethods>
+
+		<onMainAvatarEnterSpace>
+			<Arg>           INT32              </Arg>
+			<Arg>           UNICODE              </Arg>
+		</onMainAvatarEnterSpace>
+
+		<onMainAvatarLeaveSpace>
+		</onMainAvatarLeaveSpace>
+
+	</ClientMethods>
+
+	<BaseMethods>
+
+		<teleportToSpace>
+			<Arg>           MAILBOX              </Arg>
+		</teleportToSpace>
+
+		<onTeleportSuccess>
+			<Arg>           UNICODE                 </Arg>
+		</onTeleportSuccess>
+
+	</BaseMethods>
+
+	<CellMethods>
+
+		<onAvatarEnterSpace>
+			<Arg>               INT32                </Arg>
+			<Arg>               UNICODE                </Arg>
+		</onAvatarEnterSpace>
+
+		<onLeaveSpaceClientInputInValid>
+		    <Exposed/>
+		</onLeaveSpaceClientInputInValid>
+
+		<isGoingToTeleport>
+			<Arg>		UNICODE		</Arg>
+			<Arg>       VECTOR3                  </Arg>
+		</isGoingToTeleport>
+
+		<teleportToSpace>
+			<Arg>		MAILBOX		</Arg>
+			<Arg>		VECTOR3		</Arg>
+			<Arg>		VECTOR3		</Arg>
+		</teleportToSpace>
+
+	</CellMethods>
+
+</root>
