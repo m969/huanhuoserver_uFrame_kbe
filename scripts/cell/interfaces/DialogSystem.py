@@ -67,14 +67,14 @@ class DialogSystem:
     def requestBuyGoods(self, exposed, spaceID, npcName, goodsID):
         if exposed != self.id:
             return
-        DEBUG_MSG("Avatar:requestBuyGoods")
+        DEBUG_MSG("DialogSystem:requestBuyGoods")
         npcMailbox = KBEngine.globalData["space_cell_%i" % spaceID].requestNpc(npcName)
         result = npcMailbox.requestBuyGoods(self, goodsID)
         self.client.BuyResult(result)
         pass
 
     def giveGoods(self, goodsID):
-        DEBUG_MSG("Avatar:giveGoods")
+        DEBUG_MSG("DialogSystem:giveGoods")
         tempBag = self.avatarBag
         DEBUG_MSG(tempBag)
         tempBag[goodsID] = goodsID
@@ -117,7 +117,7 @@ class DialogSystem:
         :param goodID: 物品ID
         :return:
         """
-        DEBUG_MSG("Avatar:deleteGoods")
+        DEBUG_MSG("DialogSystem:deleteGoods")
         tempBag = self.avatarBag
         DEBUG_MSG(tempBag)
         if goodsID in tempBag.keys():
@@ -152,7 +152,7 @@ class DialogSystem:
             DEBUG_MSG("npcMailbox is None")
 
     def getTaskInfo(self, npcName):
-        DEBUG_MSG("Avatar:getTaskInfo")
+        DEBUG_MSG("DialogSystem:getTaskInfo")
         specificNpcTaskInfo = []
         for aTaskInfo in self.taskInfoList.values():
             if aTaskInfo[0] == npcName:
@@ -167,7 +167,7 @@ class DialogSystem:
         :param taskIndex:
         :return:
         """
-        DEBUG_MSG("Avatar:setTaskFinish")
+        DEBUG_MSG("DialogSystem:setTaskFinish")
         for (key, taskInfo) in self.taskInfoList.items():
             if npcName == taskInfo[0] and taskIndex == taskInfo[1]:
                 DEBUG_MSG("setTaskFinish")
@@ -176,7 +176,7 @@ class DialogSystem:
                 self.finishTaskScriptList.append(watcherIndex)
 
     def isTaskFinish(self, npcName, taskIndex):
-        DEBUG_MSG("Avatar:isTaskFinish")
+        DEBUG_MSG("DialogSystem:isTaskFinish")
         for taskInfo in self.taskInfoList.values():
             if npcName == taskInfo[0] and taskIndex == taskInfo[1]:
                 DEBUG_MSG("return isTaskFinish")
@@ -190,7 +190,7 @@ class DialogSystem:
         :param taskIndex:
         :return:
         """
-        DEBUG_MSG("Avatar:giveAward")
+        DEBUG_MSG("DialogSystem:giveAward")
         self.goldCount += npc_data.data[npcName][taskIndex]["金币奖励"]
         for (propName, propCount) in npc_data.data[npcName][taskIndex]["道具奖励"].items():
             # goodsInfo = {0:propName, 1:propCount}
@@ -225,7 +225,7 @@ class DialogSystem:
         :param taskIndex:
         :return:
         """
-        DEBUG_MSG("Avatar:giveTask")
+        DEBUG_MSG("DialogSystem:giveTask")
         taskInfo = TTaskInfo()
         taskInfo.extend([npcName, taskIndex, False, False])
         self.taskInfoList[npcName + str(taskIndex)] = taskInfo

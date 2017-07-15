@@ -29,6 +29,11 @@
 
 	<CellMethods>
 
+		<doSkill>
+			<Exposed/>
+			<Arg>           PYTHON                </Arg>
+		</doSkill>
+
 		<requestDoSkillQ>
 			<Exposed/>
 			<Arg>           VECTOR3                </Arg>

@@ -14,8 +14,11 @@ class SkillSystem:
         DEBUG_MSG("SkillSystem:__init__")
         self.canSpellSkill = True
 
-    def doSkill(self, *args, **kwargs):
-        DEBUG_MSG("Avatar:doSkill", args)
+    def doSkill(self, exposed, args):
+        if exposed != self.id:
+            return
+        DEBUG_MSG("SkillSystem:doSkill")
+        DEBUG_MSG(args)
 
     def requestDoSkillQ(self, exposed, point, yaw):
         if exposed != self.id:
@@ -54,7 +57,7 @@ class SkillSystem:
         self.allClients.DoSkillQ(point, yaw)  # 在客户端上调用DoSkillQ函数
 
     def requestDoSkillW(self, exposed, point):
-        DEBUG_MSG("Avatar:requestDoSkillW")
+        DEBUG_MSG("SkillSystem:requestDoSkillW")
         if exposed != self.id:
             return
         if point is not None:

@@ -14,7 +14,7 @@ class Monster(KBEngine.Entity, EntityObject, HealthSystem, AI):
         DEBUG_MSG("Monster::__init__")
         KBEngine.Entity.__init__(self)
         EntityObject.__init__(self)
-        CombatEntity.__init__(self)
+        HealthSystem.__init__(self)
         AI.__init__(self)
 
         self.spawnPos = (0, 0, 0)
@@ -37,7 +37,7 @@ class Monster(KBEngine.Entity, EntityObject, HealthSystem, AI):
 
     def receiveDamage(self, attackerMailbox, damage):
         DEBUG_MSG("Monster:receiveDamage-%s" % damage)
-        CombatEntity.receiveDamage(self, attackerMailbox, damage)
+        HealthSystem.receiveDamage(self, attackerMailbox, damage)
         DEBUG_MSG(attackerMailbox.getAttr("position"))
 
     def receiveSpawnPos(self, spawnPos):
@@ -54,7 +54,7 @@ class Monster(KBEngine.Entity, EntityObject, HealthSystem, AI):
 
     def onDie(self, murderer):
         #DEBUG_MSG("Monster:onDie")
-        CombatEntity.onDie(self, murderer)
+        HealthSystem.onDie(self, murderer)
         if murderer.hasAttr(self.killerTaskCounterVariableName) is True:
             murderer.setAttr(self.killerTaskCounterVariableName,
                              murderer.getAttr(self.killerTaskCounterVariableName) + 1)
