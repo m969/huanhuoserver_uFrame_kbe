@@ -1,0 +1,40 @@
+<root>
+
+	<Properties>
+
+		<currentEquipmentID><!-->当前武器id<-->
+			<Type>          INT32                       </Type>
+			<Flags>         CELL_PUBLIC_AND_OWN         </Flags>
+			<Persistent>    true                        </Persistent>
+		</currentEquipmentID>
+		
+	</Properties>
+
+	<ClientMethods>
+
+		<DoSkillQ>
+			<Arg>           VECTOR3               </Arg>
+			<Arg>           FLOAT               </Arg>
+		</DoSkillQ>
+
+		<DoSkillW>
+			<Arg>           VECTOR3               </Arg>
+		</DoSkillW>
+
+	</ClientMethods>
+
+	<BaseMethods>
+
+	</BaseMethods>
+
+	<CellMethods>
+
+		<requestCastSkill>
+			<Exposed/>
+			<Arg>           UNICODE                  </Arg>
+			<Arg>           UNICODE                </Arg>
+		</requestCastSkill>
+
+	</CellMethods>
+
+</root>

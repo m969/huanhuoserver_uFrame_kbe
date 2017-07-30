@@ -1,42 +1,28 @@
-<root>
-
+﻿<root>
 	<Properties>
-
-		<HP><!--生命值-->
-			<Type>          INT32                </Type>
-			<Flags>         ALL_CLIENTS               </Flags>
-			<Persistent>    true                </Persistent>
-			<Default>       100                  </Default>
+		<HP>
+			<Type>INT32</Type>
+			<Default>100</Default>
+			<Flags>ALL_CLIENTS</Flags>
+			<Persistent>true</Persistent>
 		</HP>
-
-		<HP_Max><!--生命值上限-->
-			<Type>          INT32             </Type>
-			<Flags>         ALL_CLIENTS            </Flags>
-			<Persistent>    true              </Persistent>
-			<Default>       100               </Default>
+		<HP_Max>
+			<Type>INT32</Type>
+			<Default>100</Default>
+			<Flags>ALL_CLIENTS</Flags>
+			<Persistent>true</Persistent>
 		</HP_Max>
-
 	</Properties>
-
 	<ClientMethods>
-		<OnDie>
-		</OnDie>
-
+		<OnDie />
 		<OnRespawn>
-			<Arg>			VECTOR3 			  </Arg>
+			<Arg>VECTOR3</Arg>
 		</OnRespawn>
-
 	</ClientMethods>
-
-	<BaseMethods>
-
-	</BaseMethods>
-
 	<CellMethods>
 		<receiveDamage>
-			<Arg>           MAILBOX                  </Arg>
-			<Arg>           INT32                    </Arg>
+			<Arg>MAILBOX</Arg>
+			<Arg>INT32</Arg>
 		</receiveDamage>
 	</CellMethods>
-
 </root>

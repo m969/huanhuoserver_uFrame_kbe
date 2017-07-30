@@ -1,94 +1,61 @@
-<root>
-    <Volatile>
-		<position/>
-		<!--<position> 0 </position> Don't update-->
-		<yaw/>
-		<!--<pitch> 20 </pitch>-->
-		<pitch/>
-		<roll/>
-	</Volatile>
-
+﻿<root>
 	<Implements>
-		<Interface>			EntityObject		</Interface>
+		<Interface>EntityObject</Interface>
 	</Implements>
-
 	<Properties>
-
 		<cityName>
-			<Type>              UNICODE              </Type>
-			<Flags>             ALL_CLIENTS          </Flags>
-			<Default>           None                 </Default>
+			<Type>UNICODE</Type>
+			<Default>None</Default>
+			<Flags>ALL_CLIENTS</Flags>
 		</cityName>
-
 		<spaceName>
-			<Type>              UNICODE              </Type>
-			<Flags>             ALL_CLIENTS          </Flags>
-			<Default>           None                 </Default>
+			<Type>UNICODE</Type>
+			<Default>None</Default>
+			<Flags>ALL_CLIENTS</Flags>
 		</spaceName>
-
 		<xinShouYinDaoDBID>
-			<Type>           DBID            </Type>
-			<Flags>          BASE              </Flags>
-			<Persistent>     true               </Persistent>
-			<Default>        0                 </Default>
+			<Type>DBID</Type>
+			<Default>0</Default>
+			<Flags>BASE</Flags>
+			<Persistent>true</Persistent>
 		</xinShouYinDaoDBID>
-
-		<SP_Concentration><!-->灵力浓度<-->
-			<Type>           INT32            </Type>
-			<Flags>          ALL_CLIENTS              </Flags>
-			<Persistent>     true               </Persistent>
-			<Default>        10                 </Default>
+		<SP_Concentration>
+			<Type>INT32</Type>
+			<Default>10</Default>
+			<Flags>ALL_CLIENTS</Flags>
+			<Persistent>true</Persistent>
 		</SP_Concentration>
 	</Properties>
-
-	<ClientMethods>
-	</ClientMethods>
-
 	<BaseMethods>
 		<loginSpace>
-			<Arg> 		MAILBOX 	</Arg>
+			<Arg>MAILBOX</Arg>
 		</loginSpace>
-
 		<logoutSpace>
-			<Arg>		INT32		</Arg>
+			<Arg>INT32</Arg>
 		</logoutSpace>
-
 		<requestTeleport>
-			<Arg>		MAILBOX		</Arg>
+			<Arg>MAILBOX</Arg>
 		</requestTeleport>
-
 		<onEnter>
-			<Arg> 		MAILBOX 	</Arg>
+			<Arg>MAILBOX</Arg>
 		</onEnter>
-
 		<onLeave>
-			<Arg>		INT32		</Arg>
+			<Arg>INT32</Arg>
 		</onLeave>
-
 	</BaseMethods>
-
 	<CellMethods>
 		<onEnter>
-			<Arg> 		MAILBOX 	</Arg>
+			<Arg>MAILBOX</Arg>
 		</onEnter>
-
 		<onLeave>
-			<Arg>		INT32		</Arg>
+			<Arg>INT32</Arg>
 		</onLeave>
-
 		<requestNpc>
-			<Arg> 		UNICODE 	</Arg>
+			<Arg>UNICODE</Arg>
 		</requestNpc>
-
-		<onNpcEnter>
-			<Arg> 		MAILBOX 	</Arg>
-		</onNpcEnter>
-
 		<monsterReborn>
-			<Arg>		VECTOR3 	</Arg>
-			<Arg>		UNICODE 	</Arg>
+			<Arg>VECTOR3</Arg>
+			<Arg>UNICODE</Arg>
 		</monsterReborn>
-
 	</CellMethods>
-
 </root>

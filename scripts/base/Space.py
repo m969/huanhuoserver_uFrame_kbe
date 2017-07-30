@@ -49,8 +49,5 @@ class Space(KBEngine.Base, EntityObject):
         defined method.
         离开场景
         """
-        # if entityID in self.avatars:
-        #     del self.avatars[entityID]
-
         if self.cell is not None:
             self.cell.onLeave(entityID)

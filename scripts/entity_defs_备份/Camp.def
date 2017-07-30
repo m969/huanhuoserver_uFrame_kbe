@@ -1,0 +1,32 @@
+<root>
+    <Volatile>
+		<position/>
+		<yaw/>
+		<pitch/>
+		<roll/>
+	</Volatile>
+
+	<Implements>
+		<Interface>	        EntityObject		</Interface>
+    </Implements>
+
+	<Properties>
+	
+		<campName><!--阵营名称-->
+			<Type>			UNICODE				</Type>
+			<Flags>			ALL_CLIENTS			</Flags>
+			<Default>		None				       </Default>
+		</campName>
+
+	</Properties>
+
+	<ClientMethods>
+	</ClientMethods>
+
+	<BaseMethods>
+	</BaseMethods>
+
+	<CellMethods>
+	</CellMethods>
+
+</root>

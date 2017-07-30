@@ -1,0 +1,17 @@
+﻿<root>
+	<Implements>
+		<Interface>EntityObject</Interface>
+	</Implements>
+	<Properties>
+		<campName>
+			<Type>UNICODE</Type>
+			<Default>None</Default>
+			<Flags>ALL_CLIENTS</Flags>
+		</campName>
+	</Properties>
+	<CellMethods>
+		<startShield />
+		<closeShield />
+		<createCampTrigger />
+	</CellMethods>
+</root>

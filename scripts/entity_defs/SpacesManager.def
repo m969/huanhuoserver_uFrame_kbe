@@ -1,55 +1,27 @@
-<root>
-    <Volatile>
-		<position/>
-		<!--<position> 0 </position> Don't update-->
-		<yaw/>
-		<!--<pitch> 20 </pitch>-->
-		<pitch/>
-		<roll/>
-	</Volatile>
-
-	<Properties>
-	</Properties>
-
-	<ClientMethods>
-	</ClientMethods>
-
+﻿<root>
 	<BaseMethods>
-        <loginToSpaceByName>
-            <Arg>              UNICODE                  </Arg>
-            <Arg>              MAILBOX                  </Arg>
-        </loginToSpaceByName>
-
-		<!--<loginToSpace>
-			<Arg>		MAILBOX		</Arg>
-			<Arg>		ENTITY_UTYPE	</Arg>
-			<Arg>		PYTHON		</Arg>
-		</loginToSpace>-->
-
+		<loginToSpaceByName>
+			<Arg>UNICODE</Arg>
+			<Arg>MAILBOX</Arg>
+		</loginToSpaceByName>
 		<logoutSpace>
-			<Arg>		INT32	</Arg>
-			<Arg>		INT32	</Arg>
+			<Arg>INT32</Arg>
+			<Arg>INT32</Arg>
 		</logoutSpace>
-
 		<teleportToSpaceByName>
-			<Arg>       UNICODE                  </Arg>
-			<Arg>       VECTOR3                  </Arg>
-			<Arg>		MAILBOX					</Arg>
+			<Arg>UNICODE</Arg>
+			<Arg>VECTOR3</Arg>
+			<Arg>MAILBOX</Arg>
 		</teleportToSpaceByName>
-<!--
-		<onSpaceLoseCell>
-			<Arg>		ENTITY_UTYPE	</Arg>
-			<Arg>		DBID		</Arg>
-		</onSpaceLoseCell>
-
-		<onSpaceGetCell>
-			<Arg>		ENTITY_UTYPE	</Arg>
-			<Arg>		MAILBOX		</Arg>
-			<Arg>		DBID		</Arg>
-		</onSpaceGetCell>-->
+		<publishBulletin>
+			<Arg>UNICODE</Arg>
+		</publishBulletin>
+		<addNewAvatar>
+			<Arg>INT32</Arg>
+			<Arg>MAILBOX</Arg>
+		</addNewAvatar>
+		<delAvatar>
+			<Arg>INT32</Arg>
+		</delAvatar>
 	</BaseMethods>
-
-	<CellMethods>
-	</CellMethods>
-
 </root>

@@ -1,0 +1,32 @@
+<root>
+
+	<Properties>
+
+	</Properties>
+
+	<ClientMethods>
+
+		<!--郑晓飞--客户端的对话-->
+		<onReciveChatMessage>
+			<Arg>			UNICODE 			  </Arg>
+			<Arg>			UNICODE 			  </Arg>
+		</onReciveChatMessage>
+
+	</ClientMethods>
+
+	<BaseMethods>
+
+	</BaseMethods>
+
+	<CellMethods>
+
+		<!--郑晓飞---响应客户端请求聊天函数-->
+		<onSendChatMessage>
+			<Exposed/>
+			<Arg>       UNICODE      </Arg>
+			<Arg>       UNICODE      </Arg>
+		</onSendChatMessage>
+
+	</CellMethods>
+
+</root>

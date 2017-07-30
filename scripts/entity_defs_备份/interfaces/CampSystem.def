@@ -1,0 +1,26 @@
+<root>
+
+	<Properties>
+
+		<campName><!--阵营名称-->
+			<Type>			UNICODE				</Type>
+			<Flags>			ALL_CLIENTS			</Flags>
+			<Persistent>	true					</Persistent> 
+			<Default>		None				       </Default>
+		</campName>
+
+	</Properties>
+
+	<ClientMethods>
+
+	</ClientMethods>
+
+	<BaseMethods>
+
+	</BaseMethods>
+
+	<CellMethods>
+
+	</CellMethods>
+
+</root>

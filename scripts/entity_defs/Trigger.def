@@ -1,59 +1,45 @@
-<root>
-    <Volatile>
-		<position/>
-		<yaw/>
-		<pitch/>
-		<roll/>
-	</Volatile>
-
+﻿<root>
 	<Implements>
-		<Interface>			EntityObject		</Interface>
+		<Interface>EntityObject</Interface>
 	</Implements>
-
 	<Properties>
-
 		<owner>
-			<Type>                  MAILBOX                  </Type>
-			<Flags>                 CELL_PRIVATE            </Flags>
+			<Type>MAILBOX</Type>
+			<Flags>CELL_PRIVATE</Flags>
 		</owner>
-
 		<triggerID>
-			<Type>                  INT32                  </Type>
-			<Flags>                 ALL_CLIENTS            </Flags>
-			<Default>               0                   </Default>
+			<Type>INT32</Type>
+			<Default>0</Default>
+			<Flags>ALL_CLIENTS</Flags>
 		</triggerID>
-
 		<triggerType>
-			<Type>                  UNICODE                  </Type>
-			<Flags>                 ALL_CLIENTS            </Flags>
-			<Default>               Trigger                   </Default>
+			<Type>UNICODE</Type>
+			<Default>Trigger</Default>
+			<Flags>ALL_CLIENTS</Flags>
 		</triggerType>
-
 		<triggerSize>
-			<Type>                  INT32                  </Type>
-			<Flags>                 ALL_CLIENTS            </Flags>
-			<Default>               1                   </Default>
+			<Type>INT32</Type>
+			<Default>1</Default>
+			<Flags>ALL_CLIENTS</Flags>
 		</triggerSize>
-
 		<lifeSpans>
-			<Type>                  INT32                  </Type>
-			<Flags>                 ALL_CLIENTS            </Flags>
-			<Default>               4                   </Default>
+			<Type>INT32</Type>
+			<Default>4</Default>
+			<Flags>ALL_CLIENTS</Flags>
 		</lifeSpans>
-
 		<triggerStrategy>
-			<Type>                  PYTHON                </Type>
-			<Flags>                 CELL_PRIVATE            </Flags>
+			<Type>PYTHON</Type>
+			<Flags>CELL_PRIVATE</Flags>
 		</triggerStrategy>
+		<campName>
+			<Type>UNICODE</Type>
+			<Default>None</Default>
+			<Flags>ALL_CLIENTS</Flags>
+		</campName>
+		<circleTrigger>
+			<Type>INT32</Type>
+			<Default>0</Default>
+			<Flags>ALL_CLIENTS</Flags>
+		</circleTrigger>
 	</Properties>
-
-	<ClientMethods>
-	</ClientMethods>
-
-	<BaseMethods>
-	</BaseMethods>
-
-	<CellMethods>
-	</CellMethods>
-
 </root>

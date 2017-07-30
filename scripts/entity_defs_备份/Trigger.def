@@ -1,0 +1,72 @@
+<root>
+    <Volatile>
+		<position/>
+		<yaw/>
+		<pitch/>
+		<roll/>
+	</Volatile>
+
+	<Implements>
+		<Interface>			        EntityObject		    </Interface>
+	</Implements>
+
+	<Properties>
+
+		<owner>
+			<Type>                  MAILBOX                  </Type>
+			<Flags>                 CELL_PRIVATE            </Flags>
+		</owner>
+
+		<triggerID>
+			<Type>                  INT32                  </Type>
+			<Flags>                 ALL_CLIENTS            </Flags>
+			<Default>               0                   </Default>
+		</triggerID>
+
+		<triggerType>
+			<Type>                  UNICODE                  </Type>
+			<Flags>                 ALL_CLIENTS            </Flags>
+			<Default>               Trigger                   </Default>
+		</triggerType>
+
+		<triggerSize>
+			<Type>                  INT32                  </Type>
+			<Flags>                 ALL_CLIENTS            </Flags>
+			<Default>               1                   </Default>
+		</triggerSize>
+
+		<lifeSpans>
+			<Type>                  INT32                  </Type>
+			<Flags>                 ALL_CLIENTS            </Flags>
+			<Default>               4                   </Default>
+		</lifeSpans>
+
+		<triggerStrategy>
+			<Type>                  PYTHON                </Type>
+			<Flags>                 CELL_PRIVATE            </Flags>
+		</triggerStrategy>
+		
+		<campName><!--阵营名称-->
+			<Type>					UNICODE				</Type>
+			<Flags>					ALL_CLIENTS			</Flags>
+			<Default>				None				       </Default>
+		</campName>
+
+		<circleTrigger><!--圆形触发器-->
+			<Type>					INT32				</Type>
+			<Flags>					ALL_CLIENTS			</Flags>
+			<Default>				0				    </Default>
+		</circleTrigger>
+
+	</Properties>
+
+	<ClientMethods>
+	</ClientMethods>
+
+	<BaseMethods>
+	</BaseMethods>
+
+	<CellMethods>
+	</CellMethods>
+
+</root>

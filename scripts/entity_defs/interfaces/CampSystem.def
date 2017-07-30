@@ -1,0 +1,10 @@
+﻿<root>
+	<Properties>
+		<campName>
+			<Type>UNICODE</Type>
+			<Default>None</Default>
+			<Flags>ALL_CLIENTS</Flags>
+			<Persistent>true</Persistent>
+		</campName>
+	</Properties>
+</root>

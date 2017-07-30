@@ -1,35 +1,17 @@
-<root>
-
-	<Properties>
-
-	</Properties>
-
+﻿<root>
 	<ClientMethods>
-
 		<DoMove>
-			<Arg>           VECTOR3            </Arg>
+			<Arg>VECTOR3</Arg>
 		</DoMove>
-
-		<OnStopMove>
-		</OnStopMove>
-
+		<OnStopMove />
 	</ClientMethods>
-
-	<BaseMethods>
-
-	</BaseMethods>
-
 	<CellMethods>
-
 		<requestMove>
-			<Exposed/>
-			<Arg>           VECTOR3                </Arg>
+			<Exposed />
+			<Arg>VECTOR3</Arg>
 		</requestMove>
-
 		<stopMove>
-			<Exposed/>
+			<Exposed />
 		</stopMove>
-
 	</CellMethods>
-
 </root>

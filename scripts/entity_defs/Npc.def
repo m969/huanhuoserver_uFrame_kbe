@@ -1,62 +1,46 @@
-<root>
-    <Volatile>
-		<position/>
-		<yaw/>
-		<pitch/>
-		<roll/>
-	</Volatile>
-
+﻿<root>
 	<Implements>
-		<Interface>	        EntityObject		</Interface>
-    </Implements>
-
+		<Interface>EntityObject</Interface>
+	</Implements>
 	<Properties>
 		<npcID>
-			<Type>            INT32            </Type>
-			<Flags>           ALL_CLIENTS         </Flags>
-			<Persistent>      true                </Persistent>
-			<Default>         0                </Default>
+			<Type>INT32</Type>
+			<Default>0</Default>
+			<Flags>ALL_CLIENTS</Flags>
+			<Persistent>true</Persistent>
 		</npcID>
-
 		<storeGoodsIDList>
-			<Type>            STORE_GOODS_ID_LIST            </Type>
-			<Flags>           ALL_CLIENTS         </Flags>
+			<Type>STORE_GOODS_ID_LIST</Type>
+			<Flags>ALL_CLIENTS</Flags>
 		</storeGoodsIDList>
-
 		<avatarInfoKeepDict>
-			<Type>            INT32              </Type>
-			<Flags>           CELL_PRIVATE         </Flags>
-			<Persistent>      true                </Persistent>
+			<Type>INT32</Type>
+			<Flags>CELL_PRIVATE</Flags>
+			<Persistent>true</Persistent>
 		</avatarInfoKeepDict>
 	</Properties>
-
 	<ClientMethods>
 		<NpcMethod>
-			<Arg>             INT32              </Arg>
+			<Arg>INT32</Arg>
 		</NpcMethod>
 	</ClientMethods>
-
 	<BaseMethods>
 		<createCell>
-			<Arg>             MAILBOX               </Arg>
+			<Arg>MAILBOX</Arg>
 		</createCell>
 	</BaseMethods>
-
 	<CellMethods>
 		<requestDialog>
-			<Arg>             MAILBOX              </Arg>
-			<Arg>             INT32                   </Arg>
+			<Arg>MAILBOX</Arg>
+			<Arg>INT32</Arg>
 		</requestDialog>
-
 		<requestTask>
-			<Exposed/>
-			<Arg>           UNICODE                 </Arg>
+			<Exposed />
+			<Arg>UNICODE</Arg>
 		</requestTask>
-		
 		<requestBuyGoods>
-			<Arg>           MAILBOX              </Arg>
-			<Arg>           INT32                </Arg>
+			<Arg>MAILBOX</Arg>
+			<Arg>INT32</Arg>
 		</requestBuyGoods>
-
 	</CellMethods>
 </root>

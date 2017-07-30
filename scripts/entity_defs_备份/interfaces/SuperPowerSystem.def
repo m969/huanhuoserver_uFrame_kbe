@@ -1,0 +1,96 @@
+<root>
+
+	<Properties>
+
+		<MSP><!--最大一次灵力释放量-->
+			<Type>			INT32				</Type>
+			<Flags>			ALL_CLIENTS			</Flags>
+			<Persistent>	true					</Persistent> 
+			<Default>		20				       </Default>
+		</MSP>
+
+		<MSP_Max><!--最大一次灵力释放量上限-->
+			<Type>			INT32				</Type>
+			<Flags>			ALL_CLIENTS			</Flags>
+			<Persistent>	true					</Persistent> 
+			<Default>		20				</Default>
+		</MSP_Max>
+
+		<SP><!--灵力总量-->
+			<Type>          INT32                </Type>
+			<Flags>         ALL_CLIENTS               </Flags>
+			<Persistent>    true                 </Persistent>
+			<Default>       100                  </Default>
+		</SP>
+
+		<SP_Max><!-->灵力总量上限值，会随时间增大<-->
+			<Type>          INT32                 </Type>
+			<Flags>         ALL_CLIENTS           </Flags>
+			<Persistent>    true                 </Persistent>
+			<Default>       100                    </Default>
+		</SP_Max>
+
+		<spMaxIncreaseStrength><!--灵力总量上限值增加强度-->
+			<Type>          INT32                 </Type>
+			<Flags>         ALL_CLIENTS           </Flags>
+			<Persistent>    true                 </Persistent>
+			<Default>       5                    </Default>
+		</spMaxIncreaseStrength>
+
+		<spRevertStrength><!--灵力总量回复强度-->
+			<Type>          INT32                 </Type>
+			<Flags>         ALL_CLIENTS           </Flags>
+			<Persistent>    true                 </Persistent>
+			<Default>       2                    </Default>
+		</spRevertStrength>
+
+		<mspRevertStrength><!--最大一次灵力释放量回复强度-->
+			<Type>          INT32                 </Type>
+			<Flags>         ALL_CLIENTS           </Flags>
+			<Persistent>    true                 </Persistent>
+			<Default>       2                    </Default>
+		</mspRevertStrength>
+
+		<level><!-->等级，既取决于SP_Max，也会束缚SP_Max，当 灵力上限值 达到当前等级的最大值时，角色必须晋级，灵力上限值 才会继续随时间提升<-->
+			<Type>          INT32           </Type>
+			<Flags>         ALL_CLIENTS     </Flags>
+			<Persistent>    true              </Persistent>
+			<Default>       1                </Default>
+		</level>
+
+		<levelName><!-->等级名称，既取决于SP_Max，也会束缚SP_Max，当 灵力上限值 达到当前等级的最大值时，角色必须晋级，灵力上限值 才会继续随时间提升<-->
+			<Type>          UNICODE           </Type>
+			<Flags>         ALL_CLIENTS     </Flags>
+			<Persistent>    true              </Persistent>
+			<Default>       1                </Default>
+		</levelName>
+
+		<levelPeriod><!-->等级时期，既取决于SP_Max，也会束缚SP_Max，当 灵力上限值 达到当前等阶的最大值时，角色必须进阶，灵力上限值 才会继续随时间提升<-->
+			<Type>          INT32           </Type>
+			<Flags>         ALL_CLIENTS     </Flags>
+			<Persistent>    true              </Persistent>
+			<Default>       1                </Default>
+		</levelPeriod>
+
+		<levelPeriodName><!-->等级时期名称，既取决于SP_Max，也会束缚SP_Max，当 灵力上限值 达到当前等阶的最大值时，角色必须进阶，灵力上限值 才会继续随时间提升<-->
+			<Type>          UNICODE           </Type>
+			<Flags>         ALL_CLIENTS     </Flags>
+			<Persistent>    true              </Persistent>
+			<Default>       1                </Default>
+		</levelPeriodName>
+
+	</Properties>
+
+	<ClientMethods>
+
+	</ClientMethods>
+
+	<BaseMethods>
+
+	</BaseMethods>
+
+	<CellMethods>
+
+	</CellMethods>
+
+</root>

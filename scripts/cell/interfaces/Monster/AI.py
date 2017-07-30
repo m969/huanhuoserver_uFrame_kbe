@@ -1,11 +1,10 @@
 # -*- coding: utf-8 -*-
-import KBEngine
-import time
 import math
 import random
-import monster_data
+import KBEngine
 from KBEDebug import *
-from triggerStrategies.onEnterTrap.TriggerStrategy import *
+import monster_data
+from triggerStrategies import *
 
 
 class AI:
@@ -73,7 +72,7 @@ class AI:
         if point is not None:
             # 创建一个火球技能实体
             triggerStrategy = OnceDamageTriggerStrategy()
-            triggerStrategy.setData({"攻击力": 10})
+            triggerStrategy.setData({"伤害": 10})
             bullet = KBEngine.createEntity("Trigger",
                                            self.spaceID,
                                            (self.position.x, 1, self.position.z),
@@ -100,7 +99,7 @@ class AI:
         if point is not None:
             # 创建一个火球技能实体
             triggerStrategy = OnceDamageTriggerStrategy()
-            triggerStrategy.setData({"攻击力": 10})
+            triggerStrategy.setData({"伤害": 10})
             bullet = KBEngine.createEntity("Trigger",
                                            self.spaceID,
                                            (self.position.x, 1, self.position.z),
@@ -127,7 +126,7 @@ class AI:
         if point is not None:
             # 创建一个火球技能实体
             triggerStrategy = OnceDamageTriggerStrategy()
-            triggerStrategy.setData({"攻击力": 10})
+            triggerStrategy.setData({"伤害": 10})
             rnd = int(random.random() * 10)
             if rnd % 2 == 0:
                 bullet = KBEngine.createEntity("Trigger",

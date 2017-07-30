@@ -1,58 +1,33 @@
-<root>
-
+﻿<root>
 	<Properties>
-
-		<!--郑晓飞--朋友列表-->
 		<avatarFriends>
-			<Type>          AVATAR_FRIENDS                </Type>
-			<Flags>         CELL_PUBLIC_AND_OWN        </Flags>
-			<Persistent>    true                       </Persistent>
+			<Type>AVATAR_FRIENDS</Type>
+			<Flags>CELL_PUBLIC_AND_OWN</Flags>
+			<Persistent>true</Persistent>
 		</avatarFriends>
-
 	</Properties>
-
 	<ClientMethods>
-
-		<!--郑晓飞--请求好友-->
 		<OnFindFriends>
-			<Arg>			UNICODE 			  </Arg>
+			<Arg>UNICODE</Arg>
 		</OnFindFriends>
-
-		<!--郑晓飞--请求全部好友-->
 		<OnShowAllFriends>
-			<Arg>            AVATAR_FRIENDS       </Arg>
+			<Arg>AVATAR_FRIENDS</Arg>
 		</OnShowAllFriends>
-
 	</ClientMethods>
-
-	<BaseMethods>
-
-	</BaseMethods>
-
 	<CellMethods>
-
-		<!--郑晓飞---返回数据库中的所有注册人员-->
 		<findFriends>
-			<Exposed/>
+			<Exposed />
 		</findFriends>
-
-		<!--郑晓飞---添加朋友-->
 		<addFriends>
-			<Exposed/>
-			<Arg>       UNICODE      </Arg>
+			<Exposed />
+			<Arg>UNICODE</Arg>
 		</addFriends>
-
-		<!--郑晓飞---删除朋友-->
 		<deleteFriends>
-			<Exposed/>
-			<Arg>       UNICODE      </Arg>
+			<Exposed />
+			<Arg>UNICODE</Arg>
 		</deleteFriends>
-
-		<!--郑晓飞---显示全部朋友-->
 		<showAllFriends>
-			<Exposed/>
+			<Exposed />
 		</showAllFriends>
-
 	</CellMethods>
-
 </root>

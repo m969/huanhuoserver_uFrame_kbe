@@ -7,13 +7,14 @@ from interfaces.EntityObject import EntityObject
 
 class Avatar(KBEngine.Proxy, EntityObject):
     def __init__(self):
-        EntityObject.__init__(self)
         DEBUG_MSG("Avatar:__init__")
         KBEngine.Proxy.__init__(self)
+        EntityObject.__init__(self)
 
     def onEntitiesEnabled(self):
         DEBUG_MSG("Avatar:onEntitiesEnabled:" + self.spaceName)
         KBEngine.globalData["spacesManager"].loginToSpaceByName(self.spaceName, self)
+        KBEngine.globalData["spacesManager"].addNewAvatar(self.id, self)
 
     def createCell(self, space):
         DEBUG_MSG("Avatar:createCell")
@@ -34,6 +35,7 @@ class Avatar(KBEngine.Proxy, EntityObject):
 
     def onDestroy(self):
         DEBUG_MSG("Avatar:onDestroy")
+        KBEngine.globalData["spacesManager"].delAvatar(self.id)
         if self.accountEntity is not None:
             self.accountEntity.destroyAccount()
 
@@ -54,3 +56,7 @@ class Avatar(KBEngine.Proxy, EntityObject):
     def onTeleportSuccess(self, spaceName):
         DEBUG_MSG("Avatar:onTeleportSuccess")
         self.spaceName = spaceName
+
+    def publishBulletin(self, bulletinContent):
+        DEBUG_MSG("Avatar:publishBulletin")
+        self.client.OnPublishBulletin(bulletinContent)

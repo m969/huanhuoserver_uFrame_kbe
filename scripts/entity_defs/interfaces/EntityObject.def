@@ -1,72 +1,57 @@
-<root>
-
+﻿<root>
 	<Properties>
-		<entityName><!-- 实体名称 -->
-			<Type>          UNICODE                </Type>
-			<Flags>         ALL_CLIENTS               </Flags>
-			<Persistent>    true                </Persistent>
-			<Default>       entityName                  </Default>
+		<entityName>
+			<Type>UNICODE</Type>
+			<Default>entityName</Default>
+			<Flags>ALL_CLIENTS</Flags>
+			<Persistent>true</Persistent>
 		</entityName>
-		
-		<modelName><!-- 模型名称 -->
-			<Type>              UNICODE              </Type>
-			<Flags>             ALL_CLIENTS          </Flags>
-			<Default>           None                 </Default>
+		<modelName>
+			<Type>UNICODE</Type>
+			<Default>None</Default>
+			<Flags>ALL_CLIENTS</Flags>
 		</modelName>
 	</Properties>
-
 	<ClientMethods>
-
+		<OnEntityDestroy />
 	</ClientMethods>
-
 	<BaseMethods>
 		<hasAttr>
-			<Arg>               UNICODE             </Arg>
+			<Arg>UNICODE</Arg>
 		</hasAttr>
-
 		<getAttr>
-			<Arg>               UNICODE            </Arg>
+			<Arg>UNICODE</Arg>
 		</getAttr>
-
 		<setAttr>
-			<Arg>               UNICODE               </Arg>
-			<Arg>               PYTHON               </Arg>
+			<Arg>UNICODE</Arg>
+			<Arg>PYTHON</Arg>
 		</setAttr>
-
 		<delAttr>
-			<Arg>               UNICODE              </Arg>
+			<Arg>UNICODE</Arg>
 		</delAttr>
-		
-		<getDatabaseID/>
-		
-		<getScriptName/>
-
-		<getCell/>
-
+		<getDatabaseID />
+		<getScriptName />
+		<getCell />
 	</BaseMethods>
-
 	<CellMethods>
 		<hasAttr>
-			<Arg>               UNICODE             </Arg>
+			<Arg>UNICODE</Arg>
 		</hasAttr>
-
 		<getAttr>
-			<Arg>               UNICODE            </Arg>
+			<Arg>UNICODE</Arg>
 		</getAttr>
-
 		<setAttr>
-			<Arg>               UNICODE               </Arg>
-			<Arg>               PYTHON               </Arg>
+			<Arg>UNICODE</Arg>
+			<Arg>PYTHON</Arg>
 		</setAttr>
-
 		<delAttr>
-			<Arg>               UNICODE              </Arg>
+			<Arg>UNICODE</Arg>
 		</delAttr>
-
-		<getEntityID/>
-
-		<getDatabaseID/>
-
+		<destroyEntity />
+		<getEntityID />
+		<getDatabaseID />
+		<getScriptName />
+		<getCurrentSpaceBase />
+		<getCurrentSpace />
 	</CellMethods>
-
 </root>

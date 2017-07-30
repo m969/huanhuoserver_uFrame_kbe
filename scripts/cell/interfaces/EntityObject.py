@@ -28,6 +28,9 @@ class EntityObject:
         DEBUG_MSG("delAttr : " + attr)
         return delattr(self, attr)
 
+    def destroyEntity(self):
+        self.destroy()
+
     def getEntityID(self):
         return self.id
 
@@ -37,15 +40,15 @@ class EntityObject:
     def getScriptName(self):
         return self.__class__.__name__
 
-    def getCurrSpaceBase(self):
+    def getCurrentSpaceBase(self):
         """
         获得当前space的entity baseMailbox
         """
         return KBEngine.globalData["space_%i" % self.spaceID]
 
-    def getCurrSpace(self):
+    def getCurrentSpace(self):
         """
         获得当前space的entity
         """
-        spaceBase = self.getCurrSpaceBase()
+        spaceBase = self.getCurrentSpaceBase()
         return KBEngine.entities.get(spaceBase.id, None)

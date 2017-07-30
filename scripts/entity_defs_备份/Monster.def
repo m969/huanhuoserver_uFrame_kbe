@@ -1,0 +1,36 @@
+<root>
+    <Volatile>
+		<position/>
+		<yaw/>
+		<pitch/>
+		<roll/>
+	</Volatile>
+
+	<Implements>
+		<Interface>	        EntityObject		</Interface>
+		<Interface>	        HealthSystem		</Interface>
+		<Interface>	        SuperPowerSystem		</Interface>
+		<Interface>	        AI					</Interface>
+    </Implements>
+
+	<Properties>
+	
+		<spawnPos>
+			<Type>			VECTOR3              </Type>
+			<Flags>			ALL_CLIENTS			</Flags>
+			<Persistent>	true					</Persistent> 
+			<Default>		10				</Default>
+		</spawnPos>
+
+	</Properties>
+
+	<ClientMethods>
+	</ClientMethods>
+
+	<BaseMethods>
+	</BaseMethods>
+
+	<CellMethods>
+	</CellMethods>
+
+</root>

@@ -1,12 +1,9 @@
 # -*- coding: utf-8 -*-
-import KBEngine
-import random
+import monster_data
 from KBEDebug import *
 from interfaces.EntityObject import EntityObject
 from interfaces.HealthSystem import HealthSystem
-from interfaces.AI import AI
-import monster_data
-from triggerStrategies.onEnterTrap.TriggerStrategy import *
+from interfaces.Monster.AI import AI
 
 
 class Monster(KBEngine.Entity, EntityObject, HealthSystem, AI):

@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
 import KBEngine
-import copy, enum, operator
 from KBEDebug import *
+from interfaces.Avatar.ChatChannelSystem import ChatChannelSystem
+from interfaces.Avatar.CampSystem import CampSystem
+from interfaces.Avatar.DialogSystem import DialogSystem
 from interfaces.EntityObject import EntityObject
+from interfaces.Avatar.FriendSystem import FriendSystem
 from interfaces.HealthSystem import HealthSystem
-from interfaces.SuperPowerSystem import SuperPowerSystem
-from interfaces.MotionSystem import MotionSystem
-from interfaces.SkillSystem import SkillSystem
-from interfaces.DialogSystem import DialogSystem
-from interfaces.TeleportSystem import TeleportSystem
-from interfaces.FriendSystem import FriendSystem
-from interfaces.ChatChannelSystem import ChatChannelSystem
+from interfaces.Avatar.MotionSystem import MotionSystem
+from interfaces.Avatar.SkillSystem import SkillSystem
+from interfaces.Avatar.SuperPowerSystem import SuperPowerSystem
+from interfaces.Avatar.TeleportSystem import TeleportSystem
 
 
 class AvatarState:
@@ -30,7 +30,17 @@ class RunState(AvatarState):
         AvatarState.__init__(self)
 
 
-class Avatar(KBEngine.Entity, EntityObject, HealthSystem, SuperPowerSystem, MotionSystem, SkillSystem, DialogSystem, TeleportSystem, FriendSystem, ChatChannelSystem):
+class Avatar(KBEngine.Entity,
+             EntityObject,
+             HealthSystem,
+             SuperPowerSystem,
+             MotionSystem,
+             SkillSystem,
+             DialogSystem,
+             TeleportSystem,
+             FriendSystem,
+             ChatChannelSystem,
+             CampSystem):
     def __init__(self):
         DEBUG_MSG("Avatar.cell:__init__")
         KBEngine.Entity.__init__(self)
@@ -43,12 +53,13 @@ class Avatar(KBEngine.Entity, EntityObject, HealthSystem, SuperPowerSystem, Moti
         TeleportSystem.__init__(self)
         FriendSystem.__init__(self)
         ChatChannelSystem.__init__(self)
+        CampSystem.__init__(self)
 
     def onTimer(self, timerHandle, userData):
-        SuperPowerSystem.onTimer(self, timerHandle, userData)   # 1
-        HealthSystem.onTimer(self, timerHandle, userData)       # 2
-        DialogSystem.onTimer(self, timerHandle, userData)       # 3
-        TeleportSystem.onTimer(self, timerHandle, userData)     # 4
+        SuperPowerSystem.onTimer(self, timerHandle, userData)   # 10
+        HealthSystem.onTimer(self, timerHandle, userData)       # 20
+        DialogSystem.onTimer(self, timerHandle, userData)       # 30
+        TeleportSystem.onTimer(self, timerHandle, userData)     # 40
 
     def setAvatarName(self, entityName):
         self.entityName = entityName

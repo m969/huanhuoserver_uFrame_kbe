@@ -1,0 +1,65 @@
+<root>
+    <Volatile>
+		<position/>
+		<!--<position> 0 </position> Don't update-->
+		<yaw/>
+		<!--<pitch> 20 </pitch>-->
+		<pitch/>
+		<roll/>
+	</Volatile>
+	
+    <Implements>
+		<Interface>	        EntityObject		</Interface>
+		<Interface>	        HealthSystem		</Interface>
+		<Interface>	        SuperPowerSystem		</Interface>
+		<Interface>	        MotionSystem		</Interface>
+		<Interface>	        SkillSystem		</Interface>
+		<Interface>	        DialogSystem		</Interface>
+		<Interface>	        FriendSystem		</Interface>
+		<Interface>	        TeleportSystem		</Interface>
+		<Interface>	        ChatChannelSystem		</Interface>
+		<Interface>	        CampSystem		</Interface>
+    </Implements>
+    
+	<Properties>
+
+		<spaceName><!-- 场景名称 -->
+			<Type>          UNICODE                </Type>
+			<Flags>         BASE_AND_CLIENT               </Flags>
+			<Persistent>    true                </Persistent>
+			<Default>       MuLingCunSpace                  </Default>
+		</spaceName>
+
+		<lastOnlineTime><!-->最后一次在线时间<-->
+			<Type>          INT32                   </Type>
+			<Flags>         CELL_PRIVATE       </Flags>
+			<Persistent>    true                </Persistent>
+		</lastOnlineTime>
+
+	</Properties>
+
+	<ClientMethods>
+
+	</ClientMethods>
+
+	<BaseMethods>
+
+		<createCell>
+			<Arg>           MAILBOX              </Arg>
+		</createCell>
+		
+		<setAvatarName>
+			<Arg>           UNICODE                 </Arg>
+		</setAvatarName>
+
+	</BaseMethods>
+
+	<CellMethods>
+
+		<setAvatarName>
+			<Arg>           UNICODE                </Arg>
+		</setAvatarName>
+
+	</CellMethods>
+
+</root>
