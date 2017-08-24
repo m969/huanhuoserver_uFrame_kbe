@@ -21,5 +21,12 @@
 			<Arg>UNICODE</Arg>
 			<Arg>UNICODE</Arg>
 		</requestCastSkill>
+		<addSkillControlTimer>
+			<Arg>UNICODE</Arg>
+			<Arg>FLOAT</Arg>
+			<Arg>FLOAT</Arg>
+			<Arg>UNICODE</Arg>
+			<Arg>UNICODE</Arg>
+		</addSkillControlTimer>
 	</CellMethods>
 </root>

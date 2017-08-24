@@ -61,8 +61,23 @@ class Avatar(KBEngine.Entity,
         DialogSystem.onTimer(self, timerHandle, userData)       # 30
         TeleportSystem.onTimer(self, timerHandle, userData)     # 40
 
+        SkillSystem.onTimer(self, timerHandle, userData)        # 100
+
     def setAvatarName(self, entityName):
         self.entityName = entityName
 
     def onDestroy(self):
         DEBUG_MSG("Avatar:onCellDestroy")
+
+    def moveToPointSample(self, destination, velocity, distance=0.2):
+        """
+        移动到某点
+        """
+        self.moveToPoint(destination, velocity, distance, {}, True, True)
+
+    def onMoveOver(self, controllerID, userData):
+        DEBUG_MSG("Avatar:onMoveOver")
+        self.stopMove(self.id)
+
+    def onMove(self, controllerID, userData):
+        DEBUG_MSG("Avatar:onMove")

@@ -82,7 +82,8 @@ def onRequestCreateAccount(registerName, password, datas):
 	# 如果使用http访问，因为interfaces是单线程的，同步http访问容易卡住主线程，建议使用
 	# KBEngine.registerReadFileDescriptor()和KBEngine.registerWriteFileDescriptor()结合
 	# tornado异步访问。也可以结合socket模拟http的方式与平台交互。
-	
+
+	# KBEngine.createAccountResponse(commitName, realAccountName, datas, KBEngine.SERVER_SUCCESS)
 	KBEngine.createAccountResponse(commitName, realAccountName, datas, KBEngine.SERVER_SUCCESS)
 	
 def onRequestAccountLogin(loginName, password, datas):
@@ -112,7 +113,7 @@ def onRequestAccountLogin(loginName, password, datas):
 	# tornado异步访问。也可以结合socket模拟http的方式与平台交互。
 	
 	# 如果返回码为KBEngine.SERVER_ERR_NEED_CHECK_PASSWORD则表示验证登陆成功，但dbmgr需要检查账号密码，KBEngine.SERVER_SUCCESS则无需再检查密码SERVER_ERR_LOCAL_PROCESSING
-	KBEngine.accountLoginResponse(commitName, realAccountName, datas, KBEngine.SERVER_SUCCESS)
+	KBEngine.accountLoginResponse(commitName, realAccountName, datas, KBEngine.SERVER_ERR_NEED_CHECK_PASSWORD)
 	
 def onRequestCharge(ordersID, entityDBID, datas):
 	"""

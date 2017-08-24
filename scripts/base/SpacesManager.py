@@ -6,6 +6,7 @@ import datetime
 import math
 from interfaces.CombatBulletinSystem import CombatBulletinSystem
 
+
 class SpacesManager(KBEngine.Base, CombatBulletinSystem):
     def __init__(self):
         DEBUG_MSG("SpacesManager:__init__")

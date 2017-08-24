@@ -40,15 +40,16 @@ def onReuqestLogin(loginName, password, clientType, datas):
 	账号请求登陆时回调
 	此处还可以对登陆进行排队，将排队信息存放于datas
 	"""
+	DEBUG_MSG("onReuqestLogin " + loginName)
 	INFO_MSG('onReuqestLogin() loginName=%s, clientType=%s' % (loginName, clientType))
 
 	errorno = KBEngine.SERVER_SUCCESS
 	
 	if len(loginName) > 64:
-		errorno = KBEngine.SERVER_ERR_NAME;
+		errorno = KBEngine.SERVER_ERR_NAME
 
 	if len(password) > 64:
-		errorno = KBEngine.SERVER_ERR_PASSWORD;
+		errorno = KBEngine.SERVER_ERR_PASSWORD
 
 	return (errorno, loginName, password, clientType, datas)
 
@@ -71,13 +72,16 @@ def onRequestCreateAccount(accountName, password, datas):
 	"""
 	INFO_MSG('onRequestCreateAccount() %s' % (accountName))
 
+	# errorno = KBEngine.SERVER_SUCCESS
 	errorno = KBEngine.SERVER_SUCCESS
 	
 	if len(accountName) > 64:
-		errorno = KBEngine.SERVER_ERR_NAME;
+		errorno = KBEngine.SERVER_ERR_NAME
 
 	if len(password) > 64:
-		errorno = KBEngine.SERVER_ERR_PASSWORD;
+		errorno = KBEngine.SERVER_ERR_PASSWORD
+
+	# KBEngine.executeRawDatabaseCommand("SELECT accountName from kbe_accountinfos", )
 		
 	return (errorno, accountName, password, datas)
 
@@ -88,3 +92,4 @@ def onCreateAccountCallbackFromDB(accountName, errorno, datas):
 	errorno: KBEngine.SERVER_ERR_*
 	"""
 	INFO_MSG('onCreateAccountCallbackFromDB() accountName=%s, errorno=%s' % (accountName, errorno))
+	# KBEngine.createAccountResponse(accountName, accountName, datas, errorno)

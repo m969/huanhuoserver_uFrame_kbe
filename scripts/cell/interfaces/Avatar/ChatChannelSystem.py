@@ -7,11 +7,14 @@ class ChatChannelSystem:
     def __init__(self):
         DEBUG_MSG("ChatChannelSystem:__init__")
 
-    def onSendChatMessage(self, exposed, selfName, chatContent):
+    def sendChatMessage(self, exposed, selfName, chatContent):
         """
-        郑晓飞---响应客户端的聊天函数并将聊天内容转发给其他客户端
         :param chatContent: 聊天内容
         :return: null
         """
         DEBUG_MSG("ChatChannelSystem:onSendChatMessage" + chatContent)
-        self.allClients.onReciveChatMessage(selfName, chatContent)
+        self.allClients.ReciveChatMessage(selfName, chatContent)
+
+    def sendVoiceSample(self, exposed, data, length, packetId):
+        DEBUG_MSG("ChatChannelSystem:sendVoiceSample")
+        self.otherClients.ReciveVoiceSample(data, length, packetId)

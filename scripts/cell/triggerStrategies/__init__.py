@@ -1,18 +1,22 @@
 # -*- coding: utf-8 -*-
 from triggerStrategies.Strategy import Strategy
 from triggerStrategies.TriggerStrategy import TriggerStrategy
-from triggerStrategies.DamageTriggerStrategy import DamageTriggerStrategy
-from triggerStrategies.OnceDamageTriggerStrategy import OnceDamageTriggerStrategy
-from triggerStrategies.GateWayTriggerStrategy import GateWayTriggerStrategy
-from triggerStrategies.CampTriggerStrategy import CampTriggerStrategy
+from triggerStrategies.DamageStrategy import DamageStrategy
+from triggerStrategies.OnceDamageStrategy import OnceDamageStrategy
+from triggerStrategies.GateWayStrategy import GateWayStrategy
+from triggerStrategies.CampStrategy import CampStrategy
+from triggerStrategies.IceStrategy import IceStrategy
+from triggerStrategies.ImprisonStrategy import ImprisonStrategy
 
 
 __all__ = \
     [
         "Strategy",
         "TriggerStrategy",
-        "DamageTriggerStrategy",
-        "OnceDamageTriggerStrategy",
-        "GateWayTriggerStrategy",
-        "CampTriggerStrategy"
+        "DamageStrategy",
+        "OnceDamageStrategy",
+        "GateWayStrategy",
+        "CampStrategy",
+        "IceStrategy",
+        "ImprisonStrategy"
     ]

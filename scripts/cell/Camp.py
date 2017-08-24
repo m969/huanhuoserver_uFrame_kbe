@@ -14,8 +14,8 @@ class Camp(KBEngine.Entity, EntityObject):
 
     def createCampTrigger(self):
         DEBUG_MSG("Camp:createCampTrigger")
-        self.triggerStrategy = CampTriggerStrategy()
-        self.triggerStrategy.setData({"伤害": 200})
+        self.triggerStrategy = CampStrategy()
+        self.triggerStrategy.initializeStrategy({"伤害": 200})
         if self.campTrigger is None:
             self.campTrigger = KBEngine.createEntity("Trigger",
                                                      self.spaceID,

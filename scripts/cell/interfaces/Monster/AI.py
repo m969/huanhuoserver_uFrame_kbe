@@ -72,7 +72,7 @@ class AI:
         if point is not None:
             # 创建一个火球技能实体
             triggerStrategy = OnceDamageTriggerStrategy()
-            triggerStrategy.setData({"伤害": 10})
+            triggerStrategy.initializeStrategy({"伤害": 10})
             bullet = KBEngine.createEntity("Trigger",
                                            self.spaceID,
                                            (self.position.x, 1, self.position.z),
@@ -99,7 +99,7 @@ class AI:
         if point is not None:
             # 创建一个火球技能实体
             triggerStrategy = OnceDamageTriggerStrategy()
-            triggerStrategy.setData({"伤害": 10})
+            triggerStrategy.initializeStrategy({"伤害": 10})
             bullet = KBEngine.createEntity("Trigger",
                                            self.spaceID,
                                            (self.position.x, 1, self.position.z),
@@ -126,7 +126,7 @@ class AI:
         if point is not None:
             # 创建一个火球技能实体
             triggerStrategy = OnceDamageTriggerStrategy()
-            triggerStrategy.setData({"伤害": 10})
+            triggerStrategy.initializeStrategy({"伤害": 10})
             rnd = int(random.random() * 10)
             if rnd % 2 == 0:
                 bullet = KBEngine.createEntity("Trigger",

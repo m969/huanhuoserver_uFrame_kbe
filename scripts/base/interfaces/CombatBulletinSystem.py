@@ -40,7 +40,8 @@ class CombatBulletinSystem:
             self.publishBulletin("距离开战还有" + str(lefthours) + "小时" + str(leftminutes) + "分钟" + str(leftseconds) + "秒")
             if leftseconds <= 1:
                 DEBUG_MSG("Start Resource War")
-                KBEngine.globalData["space_cell_MuLingCunSpace"].closeShield()
+                if KBEngine.globalData["space_cell_MuLingCunSpace"] is not None:
+                    KBEngine.globalData["space_cell_MuLingCunSpace"].closeShield()
                 self.addTmer(4, 3 * 3600 + 2, 4)
                 self.delTimer(timerHandle)
         elif userData == 3:

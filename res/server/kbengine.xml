@@ -7,13 +7,24 @@
 		��ϸ˵�����ο���http://kbengine.org/cn/docs/configuration/kbengine.html
 	-->
 
-	<gameUpdateHertz> 10 </gameUpdateHertz>
+	<gameUpdateHertz> 25 </gameUpdateHertz>
 	
 	<trace_packet>
 		<debug_type> 0 </debug_type>
 	</trace_packet>
 	
 	<app_publish> 0 </app_publish>
+
+	<channelCommon>
+		<windowOverflow>
+			<receive>
+				<bytes>
+					<internal>	0			</internal>
+					<external>	4096		</external>
+				</bytes>
+			</receive>
+		</windowOverflow>
+	</channelCommon> 
 	
 	<!-- defined => kbe/res/server/kbengine_defs.xml -->
 	<dbmgr>
@@ -40,7 +51,7 @@
 				<!-- 登录合法时游戏数据库找不到游戏账号则自动创建 
 					(When logged in, the game database can not find the game account is automatically created)
 				-->
-				<loginAutoCreate> true </loginAutoCreate>
+				<loginAutoCreate> false </loginAutoCreate>
 			</account_registration>
 		</account_system>
 
@@ -64,6 +75,21 @@
 			<radius> 200.0 </radius>
 			<hysteresisArea> 5.0 </hysteresisArea>
 		</defaultAoIRadius>
+
+		<!-- 是否使用坐标系统, 如果设置为false， 那么AOI、Trap、 Move等功能将不可用 
+		-->
+		<coordinate_system> 
+			<enable> true </enable>
+			
+			<!-- 是否管理y轴? 注：管理y轴，则AOI、Trap等功能有了高度，当space内的实体较少时比较好用，
+				否则y轴的管理会带来一些消耗 
+				-->
+			<rangemgr_y> true </rangemgr_y>
+			
+			<!-- 实体位置停止发生改变后，引擎继续向客户端更新tick次的位置信息，为0则总是更新。 
+			-->
+			<entity_posdir_additional_updates> 2 </entity_posdir_additional_updates>
+		</coordinate_system>
 	</cellapp>
 
 	<channelCommon> 

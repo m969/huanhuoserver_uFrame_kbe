@@ -4,7 +4,7 @@ from KBEDebug import *
 from triggerStrategies.TriggerStrategy import TriggerStrategy
 
 
-class CampTriggerStrategy(TriggerStrategy):
+class CampStrategy(TriggerStrategy):
     """
     阵营策略
     """
@@ -15,8 +15,8 @@ class CampTriggerStrategy(TriggerStrategy):
     def setInfo(self, trigger=None, otherEntity=None, rangeXZ=None, rangeY=None, controllerID=None, userArg=None):
         super().setInfo(trigger, otherEntity, rangeXZ, rangeY, controllerID, userArg)
 
-    def setData(self, strategyData):
-        super().setData(strategyData)
+    def initializeStrategy(self, strategyData):
+        super().initializeStrategy(strategyData)
         self.damage = strategyData["伤害"]
 
     def execute(self):

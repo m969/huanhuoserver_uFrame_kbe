@@ -32,13 +32,15 @@ class Trigger(KBEngine.Entity, EntityObject):
                     if dist < self.triggerSize:
                         if hasEntered is False:
                             entityInfo["hasEntered"] = True
-                            self.triggerStrategy.setInfo(self,
-                                                         entity,
-                                                         self.triggerSize,
-                                                         self.triggerSize,
-                                                         self.triggerControllerID,
-                                                         0)
-                            self.triggerStrategy.execute()
+                            if self.triggerStrategy.__class__.__name__ is "dict":
+                                for strategy in self.triggerStrategy.values():
+                                    strategy.setInfo(self, entity, self.triggerSize, self.triggerSize,
+                                                     self.triggerControllerID, userArg)
+                                    strategy.execute()
+                            if self.triggerStrategy.__class__.__name__ is not "dict":
+                                self.triggerStrategy.setInfo(self, entity, self.triggerSize, self.triggerSize,
+                                                 self.triggerControllerID, userArg)
+                                self.triggerStrategy.execute()
                     else:
                         if hasEntered is True:
                             entityInfo["hasEntered"] = False
@@ -62,8 +64,14 @@ class Trigger(KBEngine.Entity, EntityObject):
             self.entityList[other.getAttr("id")] = {"entity": other, "hasEntered": False}
             self.triggerControllerID = controllerID
         else:
-            self.triggerStrategy.setInfo(self, other, rangeXZ, rangeY, controllerID, userArg)
-            self.triggerStrategy.execute()
+            if self.triggerStrategy.__class__.__name__ == "dict":
+                for strategy in self.triggerStrategy.values():
+                    strategy.setInfo(self, other, rangeXZ, rangeY, controllerID, userArg)
+                    strategy.execute()
+            # DEBUG_MSG("class name " + self.triggerStrategy.__class__.__name__)
+            if self.triggerStrategy.__class__.__name__ != "dict":
+                self.triggerStrategy.setInfo(self, other, rangeXZ, rangeY, controllerID, userArg)
+                self.triggerStrategy.execute()
 
     def onLeaveTrap(self, other, rangeXZ, rangeY, controllerID, userArg):
         """

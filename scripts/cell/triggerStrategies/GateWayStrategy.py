@@ -4,17 +4,16 @@ from KBEDebug import *
 from triggerStrategies.TriggerStrategy import TriggerStrategy
 
 
-class GateWayTriggerStrategy(TriggerStrategy):
+class GateWayStrategy(TriggerStrategy):
     """
     传送门策略
     """
 
     def __init__(self):
         TriggerStrategy.__init__(self)
-        pass
 
-    def setData(self, strategyData):
-        super().setData(strategyData)
+    def initializeStrategy(self, strategyData):
+        super().initializeStrategy(strategyData)
         self.targetSpaceName = strategyData["目标场景"]
         self.gateWayEntrancePosition = strategyData["传送门入口点"]
 

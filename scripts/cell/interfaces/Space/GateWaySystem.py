@@ -15,7 +15,7 @@ class GateWaySystem:
         for triggerData in self.triggerData.values():
             exec("self.triggerStrategy = " + triggerData["触发器类型"] + "Strategy()")
             DEBUG_MSG(self.triggerStrategy)
-            self.triggerStrategy.setData(triggerData)
+            self.triggerStrategy.initializeStrategy(triggerData)
             trigger = KBEngine.createEntity("Trigger",
                                             self.spaceID,
                                             triggerData["触发器坐标"],
