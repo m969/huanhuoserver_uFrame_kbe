@@ -8,7 +8,6 @@ class TriggerStrategy(Strategy):
     """
     触发器策略
     """
-
     def __init__(self):
         Strategy.__init__(self)
 
@@ -28,8 +27,8 @@ class TriggerStrategy(Strategy):
 
     def execute(self):
         """
-        策略的执行方法
-        :return:
+        触发器策略的执行方法
         """
         Strategy.execute(self)
-        pass
+        if self.otherEntity.getEntityID() == self.trigger.owner.getEntityID():
+            return

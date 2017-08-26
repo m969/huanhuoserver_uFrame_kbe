@@ -4,6 +4,7 @@
 		<Interface>HealthSystem</Interface>
 		<Interface>SuperPowerSystem</Interface>
 		<Interface>AI</Interface>
+		<Interface>SkillSystem</Interface>
 	</Implements>
 	<Properties>
 		<spawnPos>

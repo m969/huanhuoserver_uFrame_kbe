@@ -1,16 +1,15 @@
 # -*- coding: utf-8 -*-
-import KBEngine
 from KBEDebug import *
-from interfaces.Avatar.ChatChannelSystem import ChatChannelSystem
 from interfaces.Avatar.CampSystem import CampSystem
+from interfaces.Avatar.ChatChannelSystem import ChatChannelSystem
 from interfaces.Avatar.DialogSystem import DialogSystem
-from interfaces.EntityObject import EntityObject
 from interfaces.Avatar.FriendSystem import FriendSystem
-from interfaces.HealthSystem import HealthSystem
 from interfaces.Avatar.MotionSystem import MotionSystem
-from interfaces.Avatar.SkillSystem import SkillSystem
-from interfaces.Avatar.SuperPowerSystem import SuperPowerSystem
 from interfaces.Avatar.TeleportSystem import TeleportSystem
+from interfaces.Common.EntityObject import EntityObject
+from interfaces.Common.HealthSystem import HealthSystem
+from interfaces.Common.SkillSystem import SkillSystem
+from interfaces.Common.SuperPowerSystem import SuperPowerSystem
 
 
 class AvatarState:
@@ -68,16 +67,3 @@ class Avatar(KBEngine.Entity,
 
     def onDestroy(self):
         DEBUG_MSG("Avatar:onCellDestroy")
-
-    def moveToPointSample(self, destination, velocity, distance=0.2):
-        """
-        移动到某点
-        """
-        self.moveToPoint(destination, velocity, distance, {}, True, True)
-
-    def onMoveOver(self, controllerID, userData):
-        DEBUG_MSG("Avatar:onMoveOver")
-        self.stopMove(self.id)
-
-    def onMove(self, controllerID, userData):
-        DEBUG_MSG("Avatar:onMove")

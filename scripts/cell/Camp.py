@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
-import KBEngine
 from KBEDebug import *
-from interfaces.EntityObject import EntityObject
+from interfaces.Common.EntityObject import EntityObject
 from triggerStrategies import *
 
 

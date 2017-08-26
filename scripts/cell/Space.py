@@ -1,14 +1,11 @@
 # -*- coding: utf-8 -*-
-import KBEngine
-from KBEDebug import *
-import monster_data
 import space_data
-from interfaces.EntityObject import EntityObject
+from KBEDebug import *
+from interfaces.Common.EntityObject import EntityObject
+from interfaces.Space.GateWaySystem import GateWaySystem
 from interfaces.Space.MonsterSystem import MonsterSystem
 from interfaces.Space.NpcSystem import NpcSystem
 from interfaces.Space.ResourceWarSystem import ResourceWarSystem
-from interfaces.Space.GateWaySystem import GateWaySystem
-from triggerStrategies import *
 
 
 class Space(KBEngine.Entity, EntityObject, MonsterSystem, NpcSystem, ResourceWarSystem, GateWaySystem):

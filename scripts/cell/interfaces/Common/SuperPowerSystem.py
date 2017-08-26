@@ -19,7 +19,8 @@ class SuperPowerSystem:
         self.levelName = level_data.level_name_data[self.level]
         self.levelPeriodName = level_data.level_period_name_data[self.levelPeriod]
 
-        self.addTimer(1, 60, 11)  # 添加 灵力上限值增加 定时器
+        if self.__class__.__name__ == "Avatar":
+            self.addTimer(1, 60, 11)  # 添加 灵力上限值增加 定时器
         self.addTimer(1, 3, 12)  # 添加 灵力值恢复 定时器
         self.addTimer(1, 0.5, 13)  # 添加 瞬时释放灵力值恢复 定时器
 

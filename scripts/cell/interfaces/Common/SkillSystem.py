@@ -7,6 +7,7 @@ import avatar_skill_data
 class SkillSystem:
     def __init__(self):
         self.canCastSkill = True
+        self.canReceiveSkill = True
         self.nameToTimerIdsDict = {}
         self.timerIdToNameDict = {}
         self.lastUserData = 100
@@ -14,6 +15,9 @@ class SkillSystem:
     def requestCastSkill(self, exposed, skillName, argsString):
         if exposed != self.id:
             return
+        if self.canCastSkill is False:
+            return
+
         skillData = avatar_skill_data.data[skillName]              # 技能信息
         skillMinSp = skillData["levelSpLimit"][1]     # 使用这个技能最少需要的灵力值
         if self.MSP < skillMinSp:
@@ -61,3 +65,13 @@ class SkillSystem:
 
             del self.timerIdToNameDict[timerHandle]
             self.delTimer(timerHandle)
+
+    def startIceFrozen(self):
+        DEBUG_MSG("SkillSystem:startIceFrozen")
+        self.allClients.StartIceFrozen()
+        pass
+
+    def endIceFrozen(self):
+        DEBUG_MSG("SkillSystem:endIceFrozen")
+        self.allClients.EndIceFrozen()
+        pass

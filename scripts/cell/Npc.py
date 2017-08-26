@@ -1,13 +1,11 @@
 # -*- coding: utf-8 -*-
-import KBEngine
-from KBEDebug import *
-from interfaces.EntityObject import EntityObject
+import goods_data
 import npc_data
 import store_data
-import goods_data
-import baoxiang_data
 import zuanshi_data
-import baoma_data
+from KBEDebug import *
+from interfaces.Common.EntityObject import EntityObject
+
 
 class Npc(KBEngine.Entity, EntityObject):
     def __init__(self):

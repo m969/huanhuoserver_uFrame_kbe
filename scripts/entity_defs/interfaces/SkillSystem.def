@@ -5,16 +5,13 @@
 			<Flags>CELL_PUBLIC_AND_OWN</Flags>
 			<Persistent>true</Persistent>
 		</currentEquipmentID>
+		<isIceFreezing>
+			<Type>INT32</Type>
+			<Default>False</Default>
+			<Flags>ALL_CLIENTS</Flags>
+			<Persistent>false</Persistent>
+		</isIceFreezing>
 	</Properties>
-	<ClientMethods>
-		<DoSkillQ>
-			<Arg>VECTOR3</Arg>
-			<Arg>FLOAT</Arg>
-		</DoSkillQ>
-		<DoSkillW>
-			<Arg>VECTOR3</Arg>
-		</DoSkillW>
-	</ClientMethods>
 	<CellMethods>
 		<requestCastSkill>
 			<Exposed />

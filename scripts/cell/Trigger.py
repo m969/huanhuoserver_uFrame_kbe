@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
-import KBEngine
 from KBEDebug import *
-from interfaces.EntityObject import EntityObject
-from triggerStrategies import *
+from interfaces.Common.EntityObject import EntityObject
 
 
 class Trigger(KBEngine.Entity, EntityObject):

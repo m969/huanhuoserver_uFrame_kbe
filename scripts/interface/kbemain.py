@@ -113,7 +113,7 @@ def onRequestAccountLogin(loginName, password, datas):
 	# tornado异步访问。也可以结合socket模拟http的方式与平台交互。
 	
 	# 如果返回码为KBEngine.SERVER_ERR_NEED_CHECK_PASSWORD则表示验证登陆成功，但dbmgr需要检查账号密码，KBEngine.SERVER_SUCCESS则无需再检查密码SERVER_ERR_LOCAL_PROCESSING
-	KBEngine.accountLoginResponse(commitName, realAccountName, datas, KBEngine.SERVER_ERR_NEED_CHECK_PASSWORD)
+	KBEngine.accountLoginResponse(commitName, realAccountName, datas, KBEngine.SERVER_ERR_LOCAL_PROCESSING)
 	
 def onRequestCharge(ordersID, entityDBID, datas):
 	"""
