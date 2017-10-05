@@ -13,6 +13,7 @@ class MotionSystem:
     def requestMove(self, exposed, point):
         self.controlledBy = None
         if self.canMove:
+            # DEBUG_MSG("MotionSystem:requestMove " + str(point))
             self.moveToPointSample(point, 20)
             self.allClients.DoMove(point)
 
@@ -25,9 +26,11 @@ class MotionSystem:
         """
         移动到某点
         """
+        # DEBUG_MSG("MotionSystem:moveToPointSample " + str(self.position))
         self.movementId = self.moveToPoint(destination, velocity, distance, {}, True, True)
 
     def onMoveOver(self, controllerID, userData):
+        # DEBUG_MSG("MotionSystem:onMoveOver " + str(self.position))
         self.stopMove()
 
     def onMove(self, controllerID, userData):

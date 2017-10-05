@@ -2,15 +2,22 @@
 	<Properties>
 		<entityName>
 			<Type>UNICODE</Type>
-			<Default>entityName</Default>
+			<Default>entity_name</Default>
 			<Flags>ALL_CLIENTS</Flags>
 			<Persistent>true</Persistent>
 		</entityName>
 		<modelName>
 			<Type>UNICODE</Type>
-			<Default>None</Default>
+			<Default>modelName</Default>
 			<Flags>ALL_CLIENTS</Flags>
+			<Persistent>false</Persistent>
 		</modelName>
+		<prefabName>
+			<Type>UNICODE</Type>
+			<Default>prefabName</Default>
+			<Flags>ALL_CLIENTS</Flags>
+			<Persistent>false</Persistent>
+		</prefabName>
 	</Properties>
 	<ClientMethods>
 		<OnEntityDestroy />

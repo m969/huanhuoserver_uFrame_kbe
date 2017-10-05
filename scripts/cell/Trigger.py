@@ -18,6 +18,8 @@ class Trigger(KBEngine.Entity, EntityObject):
             self.delEntityList = []
             self.addTimer(0, 0.1, 1)
 
+        DEBUG_MSG("entityName = " + str(self.entityName))
+
     def onTimer(self, tid, userArg):
         if userArg == 0:
             self.destroy()
@@ -92,3 +94,9 @@ class Trigger(KBEngine.Entity, EntityObject):
         移动到某点
         """
         self.moveToPoint(destination, velocity, distance, {}, True, True)
+
+    def moveToEntitySample(self, destEntityID, velocity, distance=0.1):
+        """
+        移动到某点
+        """
+        self.moveToEntity(destEntityID, velocity, distance, {}, True, True)

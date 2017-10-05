@@ -13,7 +13,6 @@ class SkillE(Skill):
         Skill.__init__(self, spellCaster, argsString)
         args = argsString.split()
         self.skillPoint = Math.Vector3(float(args[0]), float(args[1]), float(args[2]))
-        # self.skillPoint = (float(args[0]), float(args[1]), float(args[2]))
 
     def cast(self):
         damage = int(self.skillSpAmount * self.skillQuality)

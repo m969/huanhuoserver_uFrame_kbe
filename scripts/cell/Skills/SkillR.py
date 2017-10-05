@@ -7,11 +7,11 @@ from Skills import *
 from triggerStrategies import *
 
 
-class SkillQ(Skill):
+class SkillR(Skill):
     def __init__(self, spellCaster, argsString):
         Skill.__init__(self, spellCaster, argsString)
         args = argsString.split()
-        self.skillPoint = (float(args[0]), float(args[1]), float(args[2]))
+        self.enemyId = int(args[0])
 
     def cast(self):
         damage = int(self.skillSpAmount * self.skillQuality)
@@ -24,11 +24,11 @@ class SkillQ(Skill):
                                         self.spellCaster.position,
                                         self.spellCaster.direction,
                                         {
-                                            'entityName': "SkillQ_Trigger",
+                                            'entityName': "SkillR_Trigger",
                                             'owner': self.spellCaster,
                                             "campName": self.spellCaster.getAttr("campName"),
-                                            'triggerID': 1,
+                                            'triggerID': 2,
                                             'triggerSize': 4,
                                             'triggerStrategy': self.triggerStrategy
                                         })
-        trigger.moveToPointSample(self.skillPoint, 80)
+        trigger.moveToEntitySample(self.enemyId, 20)
